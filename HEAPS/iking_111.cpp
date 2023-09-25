@@ -1,0 +1,12 @@
+// GIVEN AN ARRAY OF N POSITIVE INTEGERS AND TWO POSITIVE INTEGERS K1 AND K2
+// WE HAVE TO FIND THE SUM BETWEEN THE K1TH AND K2TH SMALLEST ELEMENT OF ARRAY
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+int main(){
+
+    return 0;
+}

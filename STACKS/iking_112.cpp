@@ -1,0 +1,43 @@
+// EVALUATION OF A POSTFIX EXPRESSION
+
+// 2 3 1 * + 9 -
+// 2 (3*1) + 9 - ==> 2 3 + 9 - ==> (2+3) 9 - ==> 5 9 - ==> (5-9)==-4
+// SO WHENEVER ANY OPERATOR IS COMING WE ARE APPLYING THAT ON IT'S PREVIOUS TWO OPERANDS
+
+// SO THIS THING CAN BE DONE EASILY WITH THE HELP OF STACK DATASTRUCTURE
+// THAT IS SO BECAUSE WHENEVER WE ARE ENCOUNTERING DIGIT WE WILL PUSH IT INTO THE STACK
+// IF OPERAND COMES THEN APPLY IN ONLY TOP AND TOP-1 ELEMENT AND RESULT WILL PUSH INTO THE STACK
+// THIS THING WILL CONTINUE TILL WE REACH END AND ONLY ONE ELEMENT WILL REMAIN IN THE STACK AS OUR POSTFIX ANSWER
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int calculate(int v1,int v2,char op){
+    if(op=='^') return pow(v1,v2);
+    else if(op=='/') return v1/v2;
+    else if(op=='*') return v1*v2;
+    else if(op=='+') return v1+v2;
+    else return v1-v2;
+}
+
+int eval(string &str){
+    stack<int>st;
+    for(int i=0;i<str.size();i++){
+        char chr=str[i];
+        if(isdigit(chr)) st.push(chr-'0');
+        else{
+            int v2=st.top();
+            st.pop();
+            int v1=st.top();
+            st.pop();
+            st.push(calculate(v1,v2,chr));
+        }
+    }
+    return st.top();
+}
+
+int main(){
+    string str="231*+9-";
+    cout<<eval(str)<<"\n";
+    return 0;
+}

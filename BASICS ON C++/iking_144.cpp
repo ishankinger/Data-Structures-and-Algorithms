@@ -1,0 +1,27 @@
+// DEREFERENCE OPERATORS
+// ACCESSING DATA PRESENT AT THE ADDRESSSD THROUGH A POINTER
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    int x=10;
+
+    int *ptr=&x;                // DECLARATION OF POINTER FOR INT X
+
+    cout<<*ptr<<endl;           // THIS IS DEREFERENCING AS IT WILL PRINT THE VALUE STORED IN THE ADDRESS POINTED BY PTR
+
+    x=23;                       // VALUE OF X IS CHANGED FROM 10 TO 23
+
+    cout<<*ptr<<endl;           // NOW IF WE DEREFERENCE PTR WE WILL GET VALUE PRESENT AT ADDRESS THAT IS 23 NOT 10 AS IT IS CHANGED
+
+    *ptr=45;                    // HERE *ptr MEANS THAT WE NOW AT VALUE OF THE ADDRESS POINTED BY PTR
+     cout<<x<<endl;             // NOW 45 WILL BE PRINTED AND THIS SHOWS THAT *ptr HAS CHANGED THE VALUE OF X FROM 23 TO 45    
+     cout<<*ptr<<endl;          // BOTH ARE SAME SO 45 WILL BE PRINTED FOR THIS ALSO                       
+
+    return 0;
+}
+// & GIVES THE ADDRESS
+//  (  *PTR == X  ) *****IMPORTANT*****
+// IF WE USE * ABOVE POINTER NAME OTHER THEN DECLARATION THEN THIS THING WILL BE EQUIVALENT TO THE VARIABLE X
