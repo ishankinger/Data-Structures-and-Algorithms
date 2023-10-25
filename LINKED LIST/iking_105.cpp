@@ -1,4 +1,4 @@
-// FUNCTION TO REVERSE THE LINKED LIST
+// *********** REVERSING THE LINKED LIST **************
 
 #include<bits/stdc++.h>
 using namespace std;
