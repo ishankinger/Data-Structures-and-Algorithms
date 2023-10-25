@@ -1,4 +1,4 @@
-// FUNCTION TO DELETE ALTERNATE NODES OF LINKED LIST
+// ******************* FUNCTION TO DELETE ALTERNATE NODES OF LINKED LIST *****************************
 
 #include<bits/stdc++.h>
 using namespace std;
