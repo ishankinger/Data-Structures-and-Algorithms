@@ -1,4 +1,4 @@
-//  *******RECURSION IN STACKS*********
+//  ************* RECURSION IN STACKS ******************
 // IN RECURSIVE CALLS A CALL STACK IS FORMED INBUILT SO THAT REDUCES THE EFFORT OF MAKING A TEMPORARY AS TO BE DONE IN ITERATIVE METHODS
 
 #include<iostream>
@@ -9,7 +9,7 @@ using namespace std;
 
 void insertAtBottom(stack<int>&st,int ele){   // FUNCTION TO INSERT 
     if(st.empty()){                           // IF STACK BECOMES EMPTY PUSH GIVEN ELEMENT
-        st.push(ele);                         // ELE TO BE PUSHED
+        st.push(ele);                         // ELEMENT TO BE PUSHED
         return;                               // THEN RETURN MEANS ALL ELEMENTS IN CALL STACK WILL BE PRINTED
     }
     int topele=st.top();                      // FIRST TOP ELEMENT WILL MOVE IN CALL STACK THEN OTHER
