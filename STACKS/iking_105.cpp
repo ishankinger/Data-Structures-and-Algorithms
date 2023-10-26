@@ -1,4 +1,4 @@
-// REVERSING THE SENTENCE
+// ****************** REVERSING THE SENTENCE ********************
 
 #include<iostream>
 #include<stack>
