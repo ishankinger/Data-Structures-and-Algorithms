@@ -1,4 +1,4 @@
-// ******NEXT GREATER ELEMENT PROBLEM******
+// ***************** NEXT GREATER ELEMENT PROBLEM **********************
 // IN THIS PROBLEM WE HAVE TO RETURN AN ARRAY GIVING EACH ELEMENT'S NEXT FIRST ELEMENT THAT IS GREATER THAN IT
 
 // SO TO DO THIS QUESTION WE WILL USING STACK DATASTRUCTURE
@@ -28,6 +28,22 @@ vector<int> nge(vector<int> &arr){                        // FUNCTION FOR NEXT G
 }
 
 // FOR NEXT SMALLER ELEMENT JUST CHANGE THE SIGN OF > TO < AND OTHER ALL THINGS TO BE SAME
+
+vector<int> nse(vector<int> &arr){
+    int n = arr.size();
+    vector<int> output(n,-1);
+    stack<int> st;
+    st.push(0);
+    for(int i=1;i<n;i++){
+        while(!st.empty() && arr[i]<arr[st.top()]){
+            output[st.top()] = arr[i];
+            st.pop();
+        }
+        st.push(i);
+    }
+    return output;
+}
+
 // FOR PREV. SMALLER AND PREV. LARGER JUST REVERSE THE GIVEN ARRAY AND OUTPUT IT BY REVRSING
 
 vector<int> pge(vector<int> &arr){
@@ -47,6 +63,26 @@ vector<int> pge(vector<int> &arr){
     reverse(output.begin(),output.end());                 // REVERSE OUR OUTPUT ALSO TO GET FINAL ANSWER
     return output;
 }
+
+vector<int> pse(vector<int> &arr){
+    int n = arr.size();
+    reverse(arr.begin(),arr.end());
+    vector<int> output(n,-1);
+    stack<int> st;
+    st.push(0);
+    for(int i=1;i<n;i++){
+        while(!st.empty() && arr[i]<arr[st.top()]){
+            output[st.top()] = arr[i];
+            st.pop();
+        }
+        st.push(i);
+    }
+    reverse(arr.begin(),arr.end());
+    reverse(output.begin(),output.end());
+    return output;
+}
+
+
 // *******STOCK SPAN PROBLEM******** ( APPLICATION OF ABOVE METHODOLOGY )
 // IN THIS WE HAVE TO TELL THE NUMBER OF CONSECUTIVE DAYS BEHIND THE GIVEN DAY STOCK THAT ARE LESS THAN OR EQUAL TO IT.
 // SO SIMPLY WE WILL GET POSITION OF PREVIOUS LARGER ELEMENT AND THEN WE WILL SUBTRACT POSITION TO GET CONSECUTIVE DAYS
@@ -78,8 +114,16 @@ int main(){
     for(int i=0;i<result1.size();i++) cout<<result1[i]<<" ";                   // NEXT GREATER ELEMENT
     cout<<"\n";
 
-    vector<int>result2=pge(v);                                                 // PREVIOUS GREATER ELEMENT
-    for(int i=0;i<result2.size();i++) cout<<result2[i]<<" ";
+    vector<int>result2=nse(v);
+    for(int i=0;i<result2.size();i++) cout<<result2[i]<<" ";                   // NEXT SMALLER ELEMENT
+    cout<<"\n";
+
+    vector<int>result3=pge(v);                                                 // PREVIOUS GREATER ELEMENT
+    for(int i=0;i<result3.size();i++) cout<<result3[i]<<" ";
+    cout<<"\n";
+
+    vector<int>result4=pse(v);                                                 // PREVIOUS GREATER ELEMENT
+    for(int i=0;i<result4.size();i++) cout<<result4[i]<<" ";
     cout<<"\n";
     
     vector<int>resStockSpan=stockSpan(v);
