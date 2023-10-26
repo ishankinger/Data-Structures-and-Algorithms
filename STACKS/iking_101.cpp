@@ -1,4 +1,4 @@
-// STACKS 
+// *************** STACKS ********************
 // LINEAR DATASTRUCTURE AND BASED ON LIFO MECHANISM
 // LAST IN FIRST OUT IN O(1) TIME
 
