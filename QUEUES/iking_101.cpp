@@ -1,4 +1,4 @@
-// QUEUES 
+// *************** QUEUES *********************
 // IMPLEMENTATION USING ARRAYS
 
 #include<iostream>
