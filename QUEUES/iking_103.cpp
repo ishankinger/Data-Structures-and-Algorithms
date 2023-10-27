@@ -1,5 +1,4 @@
-// IMPLEMENTATION OF QUEUE USING STACK
-// APPROACH 2 : USING FUNCTION CALL STACK
+// ******************** APPROACH 2 : USING FUNCTION CALL STACK *****************************
 
 #include<iostream>
 #include<stack>
@@ -26,7 +25,20 @@ class queues{                                             // CLASS FORMED FOR QU
             st.push(x);                                   // THEN WHILE RETURNING WE WILL PUSH ELEMENTS IN OUR STACK
         }
         int peek(){
-            
+            int peek_ele = -1;                            // PEEK ELEMENT VARIABLE IS CREATED 
+            if(st.empty()){                               // WE WILL BE USING RECURSIVE APPROACH FOR REMOVAL
+                cout<<"queue is empty"<<endl;
+                return -1;
+            }
+            if(st.size()==1){                             // IF SIZE IS 1 MEANS WE REACHED LAST ELEMENT IN STACK
+                return st.top();                          // RETURN THE TOP ELEMENT VALUE
+            }                      
+            int x=st.top();                               // FIRST WE WILL SAVE ALL THE ELEMENTS 
+            st.pop();                                     // WE WILL POP IN EACH CALL
+            peek_ele = peek();                            // THEN WE WILL USE OUR RECURSIVE CALL
+            st.push(x);                                   // THEN WHILE RETURNING WE WILL PUSH ELEMENTS IN OUR STACK
+
+            return peek_ele;
         }
         bool empty(){
             if(st.empty()) return true;
