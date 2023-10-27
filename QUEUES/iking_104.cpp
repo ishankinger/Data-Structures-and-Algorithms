@@ -1,5 +1,6 @@
-// STACK USING QUEUES
-// METHOD 1 -> MAKING PUSH COSTLY
+// ****************** STACK USING QUEUES **********************
+
+// ***************** METHOD 1 -> MAKING PUSH COSTLY **********************
 
 // WE WILL MAKE TWO QUEUES Q1 AND Q2
 // NOW OUR STACK ELEMENTS WILL BE REPRESENTED IN Q1 IN SAME ORDER
