@@ -96,28 +96,55 @@ class queuess{
 };
 
 int main(){
-    queuess q;
-    q.enque(1);
-    cout<<q.peek()<<" ";
-    q.enque(2);
-    cout<<q.peek()<<" ";
-    q.enque(3);
-    cout<<q.peek()<<" ";
-    q.enque(4);
-    cout<<q.peek()<<" ";
-    q.enque(5);
-    cout<<q.peek()<<" "<<endl;
+    queuess q1;
+    q1.enque(1);
+    cout<<q1.peek()<<" ";
+    q1.enque(2);
+    cout<<q1.peek()<<" ";
+    q1.enque(3);
+    cout<<q1.peek()<<" ";
+    q1.enque(4);
+    cout<<q1.peek()<<" ";
+    q1.enque(5);
+    cout<<q1.peek()<<" "<<endl;
 
-    q.dequeue();
-    q.dequeue();
+    q1.dequeue();
+    q1.dequeue();
 
-    cout<<q.peek()<<endl;
+    cout<<q1.peek()<<endl;
 
-    q.enque(6);
+    q1.enque(6);
 
-    while(!(q.empty())){
-        cout<<q.peek()<<" ";
-        q.dequeue();
+    while(!(q1.empty())){
+        cout<<q1.peek()<<" ";
+        q1.dequeue();
     }
+
+    printf("\n");
+    
+    queues q2;
+    q2.enque(1);
+    cout<<q2.peek()<<" ";
+    q2.enque(2);
+    cout<<q2.peek()<<" ";
+    q2.enque(3);
+    cout<<q2.peek()<<" ";
+    q2.enque(4);
+    cout<<q2.peek()<<" ";
+    q2.enque(5);
+    cout<<q2.peek()<<" "<<endl;
+
+    q2.dequeue();
+    q2.dequeue();
+
+    cout<<q2.peek()<<endl;
+
+    q2.enque(6);
+
+    while(!(q2.empty())){
+        cout<<q2.peek()<<" ";
+        q2.dequeue();
+    }
+    
     return 0;
 }
