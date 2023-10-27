@@ -1,4 +1,4 @@
-// IMPLEMENTATION OF QUEUES USING LINKED LIST
+// ************************ IMPLEMENTATION OF QUEUES USING LINKED LIST *****************************
 
 #include<bits/stdc++.h>
 using namespace std;
