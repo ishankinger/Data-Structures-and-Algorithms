@@ -1,7 +1,10 @@
-// IMPLEMENTATION USING STACKS
-// APPROACH 1 : USING TWO STACKS
+// *********************** IMPLEMENTATION USING STACKS *****************************
 
-// THIS IS PUSH EFFICIENT AS PUSH IS IN O(1)
+// ********************* APPROACH 1 : USING TWO STACKS **********************
+
+// ************ PUSH EFFICIENT ****************
+// ENQUE OPERATION IN O(1) WHILE DEQUE IN O(N)
+// HERE THE FIRST STACK IS STORING ELEMENTS IN REVERSE ORDER AS THAT OF A QUEUE
 
 #include<iostream>
 #include<stack>
@@ -54,7 +57,9 @@ class queues{                                   // CLASS OF QUEUE IS FORMED
     }
 };
 
-// THIS IS POP EFFICIENT
+// ******************** POP EFFICIENT ***************************
+// ENQUE OPERATION IN O(N) WHILE DEQUE OPERATION IN O(1)
+// HERE THE FIRST STACK IS MAINTAINED AS THE REPLICA OF OUR QUEUE
 
 class queuess{
     public:
