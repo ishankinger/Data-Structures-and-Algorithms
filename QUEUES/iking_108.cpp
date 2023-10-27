@@ -1,4 +1,4 @@
-// DEQUE USING STL
+// ******************* DEQUE USING STL *********************
 // DOUBLE ENDED QUEUES
 
 // PUSH AND DELETE FROM FRONT AND BACK
