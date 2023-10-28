@@ -1,4 +1,5 @@
-// 2-D ARRAYS ( DATATYPE_NAME_[ROW][COL] )
+// ******************* 2-D ARRAYS ******************
+// ( DATATYPE_NAME_[ROW][COL] )
 // 2-D ARRAYS ARE SIMPLY MATRIX OF SIZE ROW*COL HAVING TOTAL ELEMENTS N*M
 
 #include<iostream>
