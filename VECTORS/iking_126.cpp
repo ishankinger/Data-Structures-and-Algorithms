@@ -1,5 +1,7 @@
+// ****************** TARGET SUM SUB-ARRAY PROBLEM ************************
 // AN UNSORTED ARRAY IS GIVEN OF SIZE N OF NON NEGATIVE INTEGERS, FIND A CONTINUOUS SUB ARRAY WHICH ADDS TO GIVEN NUMBER S
-// ******BRUTE FORCE METHOD******
+
+// ************ BRUTE FORCE METHOD ****************
 
 #include<iostream>
 using namespace std;
