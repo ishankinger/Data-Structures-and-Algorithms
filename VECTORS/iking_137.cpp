@@ -1,4 +1,5 @@
-// MATRIX MULTIPICATION( {N1*N2} * {N2*N3} == {N1*N3} )
+// **************** MATRIX MULTIPICATION *******************
+// ( {N1*N2} * {N2*N3} == {N1*N3} )
 
 #include<iostream>
 using namespace std;
