@@ -1,4 +1,5 @@
-// ****TWO POINTERS CONCEPT**** (PREVIOUS QUESTION ONLY IN ONE TRAVERSAL)
+// ******************* TWO POINTERS CONCEPT ******************** 
+// (PREVIOUS QUESTION ONLY IN ONE TRAVERSAL)
 
 #include<iostream>
 #include<vector>
