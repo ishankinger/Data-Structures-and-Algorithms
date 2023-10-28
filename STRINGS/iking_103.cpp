@@ -1,4 +1,4 @@
-// SORTING OF STRINGS
+// ************ SORTING OF STRINGS *****************
 
 #include<iostream>
 #include<algorithm>                 // IMPORTANT TO WRITE TO USE THESE TYPES OF FUNCTIONS
