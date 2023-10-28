@@ -1,4 +1,5 @@
-// GET TRANSPOSE FOR GIVEN 2D ARRAY( ROWS BECOMES COLS AND COLS BECOMES ROWS )
+// *************** TRANSPOSE FOR GIVEN 2D ARRAY *********************
+// ( ROWS BECOMES COLS AND COLS BECOMES ROWS )
 
 #include<iostream>
 using namespace std;
