@@ -1,5 +1,6 @@
-// SORTING AN ARRAY CONSISTING OF ONLY 0's AND 1's
-// METHOD USING NEW ARRAY METHOD
+// ************* SORTING AN ARRAY CONSISTING OF ONLY 0's AND 1's ****************
+
+// ************ USING NEW ARRAY METHOD ************
 
 #include<iostream>
 using namespace std;
