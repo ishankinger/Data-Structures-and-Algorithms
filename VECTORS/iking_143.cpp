@@ -1,3 +1,4 @@
+// ********************* EXTRACTING SUM FROM A 2-D MATRIX ****************************
 // GIVEN A 2D VECTOR WE HAVE TO FIND THE SUM OF RECTANGLE HAVING COODINATES AS (L1,R1) AND (L2,R2)
 
 #include<bits/stdc++.h>
@@ -5,7 +6,7 @@ using namespace std;
 
 int main(){
 
-    // BRUTE FORCE METHOD
+    // ************** BRUTE FORCE METHOD ******************
 
     int n,m; cin>>n>>m;
     vector<vector<int>>v(n,vector<int>(m));
@@ -23,7 +24,7 @@ int main(){
     }
     cout<<sum<<"\n";
 
-    // PREFIX SUM APPROACH( ROW WISE )
+    // **************** PREFIX SUM APPROACH( ROW WISE ) ******************
 
     for(int i=0;i<n;i++){
         for(int j=1;j<m;j++){
@@ -36,7 +37,7 @@ int main(){
     }
     cout<<ans<<"\n";
 
-    // PREFIX SUM APPROACH ( BOTH ROW WISE AND COLUMN WISE )
+    // *************** PREFIX SUM APPROACH ( BOTH ROW WISE AND COLUMN WISE ) **********************
     
     for(int j=0;j<m;j++){
         for(int i=1;i<n;i++){
