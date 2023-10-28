@@ -1,4 +1,4 @@
-// TARGET SUM TRIPLET
+// *********** TARGET SUM TRIPLET *******************
 // COUNT THE SUM OF TRIPLETS WHOSE SUM IS EQUAL TO THE GIVEN X
 
 #include<iostream>
