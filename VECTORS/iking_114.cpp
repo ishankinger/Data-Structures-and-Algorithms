@@ -1,4 +1,6 @@
-// ******REVERSE OPERATION****** ( WITHOUT USING EXTRA MEMORY WE CAN ROTATE VECTOR )
+// ************** REVERSE OPERATION ***************
+// ( WITHOUT USING EXTRA MEMORY WE CAN ROTATE VECTOR )
+// reverse(i,j) => REVERSE FROM I TO J-1 INDICES IN THE VECTOR
 
 #include<iostream>
 #include<vector>
