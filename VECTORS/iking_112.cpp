@@ -1,4 +1,5 @@
-// BETTER WAY TO DO LAST QUESTION( ONLY TWO TRAVERSALS TO BE DONE )
+// ************** BETTER WAY TO DO LAST QUESTION *****************
+// ( ONLY TWO TRAVERSALS TO BE DONE )
 
 #include<iostream>
 using namespace std;
