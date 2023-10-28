@@ -1,4 +1,4 @@
-// ******NEW ARRAY MEMORY*******
+// **************** NEW ARRAY MEMORY ********************
 // ROTATE THE GIVEN ARRAY BY K STEPS( K CAN BE GREATER THAN SIZE OF ARRAY)
 
 #include<iostream>
