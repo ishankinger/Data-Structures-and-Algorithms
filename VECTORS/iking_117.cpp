@@ -1,4 +1,5 @@
 // PREVIOUS QUESTION WITHOUT USING EXTRA MEMORY AND DONE WITH VECTORS
+//  ************** COUNTING ZEROS AND ONES ***************
 
 #include<iostream>
 #include<vector>
