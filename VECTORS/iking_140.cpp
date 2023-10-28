@@ -35,23 +35,6 @@ int main(){
     
     // ANOTHER APPROACH OF THE ABOVE QUESTION( ELE[I][J]= ELE[I-1][J]+ELE[I-1])[J-1] )
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return 0;
 }
   
