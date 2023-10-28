@@ -1,4 +1,5 @@
-// FIRST DATASTRUCTURE--> ARRAY ( GROUP OF HOMOGENEOUS ITEMS AND STORED IN CONTIGOUS MEMORY)
+// ***************** ARRAYS ***********************
+// ( GROUP OF HOMOGENEOUS ITEMS AND STORED IN CONTIGOUS MEMORY)
 
 #include<iostream>
 using namespace std;
@@ -17,8 +18,7 @@ int main(){                                        // TWO WAYS TO DEFINE AN ARRA
     int arr2[5]={1,2,3,4,5};                       // WE CAN DEFINE SIZE IF WE WANT ON OUR OWN WISH 
     cout<<arr2[3]<<" ";
 
-    // RANGE BASED LOOPS
-    
+    // ****** RANGE BASED LOOPS *******
     for(int element:array){                        // FOR EACH LOOP : USED TO TRAVERSE IN THE ARRAY
         cout<<element<<" ";                        // DEFINING A NEW VARIABLE OF DATATYPE AS THAT OF THE DATA TYPE OF THE ARRAY
     }
