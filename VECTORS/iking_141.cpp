@@ -1,4 +1,4 @@
-// ROWS WITH MAxIMUM NO. OF 1'S PROBLEM 
+// ******************** ROWS WITH MAxIMUM NO. OF 1'S PROBLEM ************************
 // A 2D VECTOR IS GIVEN COSISTING OF ONLY 0'S AND 1'S IN SORTED WAY
 // IN THE GIVEN DATA IT IS SORTED SO IT GIVES A CLUE TO OTHER METHOD THAN BRUTE FORCE METHOD OF GOING IN EACH ROW AND COUNT ONE
 // AS VECTORS ARE SORTED SO WHEN WE FIND FIRST ONE AFTER THAT ALL WILL BE 1
@@ -12,7 +12,7 @@ int main(){
     vector<vector<int>> V(3,vector<int>(4));                   // VECTOR PROTOTYPE
     V={{0,0,0,1},{0,1,1,1},{0,0,1,1}};                         // OUTPUT OF THE VECTOR
     int maxOnes=INT_MIN;                                       // VARIABLE TO COUNT THE TOTAL ONES IN THE ROWS
-    int maxOnesRow=-1;                                         // ROW IN WHICH MAX ONES OCCUR AND WHICH IS TO PRINTED AT END FOR OUT ANSWER
+    int maxOnesRow=-1;                                         // ROW IN WHICH MAX ONES OCCUR AND WHICH IS TO PRINTED AT END FOR OUR ANSWER
     int columnNumber=V[0].size();                              // VARIABLE JUST TO COUNT TOTAL NUMBER OF COLUMNS AS THIS GIVE FIRST ROW SIZE
     int numberOfOnes;                                          // DEFINING A VARIABLE TO BE USED FURTHER
 
