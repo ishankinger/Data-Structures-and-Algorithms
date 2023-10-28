@@ -1,3 +1,4 @@
+// *************** SMALLEST SUB-ARRAY WITH SIZE K *******************
 // GIVEN AN ARRAY AND AN INTEGER X AND WE HAVE TO CALCULATE SMALLEST SUB-ARRAY SIZE HAVING SUM > X
 
 #include<bits/stdc++.h>
