@@ -1,4 +1,5 @@
-// PASCAL'S TRIANGLE PROBLEM ( CAN BE WRITTEN IN THE FORM OF iCj WHERE i=ROWS AND j=COLS )
+// *************** PASCAL'S TRIANGLE PROBLEM *********************
+// ( CAN BE WRITTEN IN THE FORM OF iCj WHERE i=ROWS AND j=COLS )
 
 #include<iostream>
 #include<vector>
