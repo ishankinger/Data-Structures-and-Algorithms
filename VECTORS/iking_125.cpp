@@ -1,6 +1,4 @@
-// ##### INTERVIEW QUESTIONS ON ARRAY ######
-
-// FIND AN ELEMENT IN THE ARRAY THAT IS FIRST IN OCCURENCE AND ALSO IT OCCURS MORE THAN ONCE
+// ********* FIND AN ELEMENT IN THE ARRAY THAT IS FIRST IN OCCURENCE AND ALSO IT OCCURS MORE THAN ONCE ***********
 
 #include<iostream>
 #include<climits>
@@ -20,5 +18,5 @@ int main(){
         }
         
     }
-    cout<<"element in array repeating with least occ is: "<<arr[minInd]<<endl;
+    cout<<"element in array repeating with first occ is: "<<arr[minInd]<<endl;
 }
