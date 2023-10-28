@@ -1,5 +1,4 @@
-// INPUTS FROM THE ARRAY USING FOR EACH LOOP ALSO
-
+// ******************* INPUTS FROM THE ARRAY ********************
 #include<iostream>
 using namespace std;
 
@@ -8,6 +7,9 @@ int main(){
     for(int i=0;i<5;i++){
         cin>>vowels[i];                        // TAKING INPUT AS ARRAY
     }
+
+    // ******** USING 'FOR EACH' LOOP ALSO **********
+    
     for(char &letter:vowels){                  // AMPERSANT OPERATOR IS MUST FOR 'FOR EACH LOOP'
         cin>>letter;                           // OTHERWISE IT WILL SHOW EROR
     }
