@@ -1,5 +1,5 @@
 // OPTIMISED APPROACH OF PREVIOUS QUESTION
-// BY *******TWO POINTER METHOD OR SLIDING WINDOW TECHNIQUE********
+// BY *************** TWO POINTER METHOD OR SLIDING WINDOW TECHNIQUE *******************
 
 #include<bits/stdc++.h>
 using namespace std;
