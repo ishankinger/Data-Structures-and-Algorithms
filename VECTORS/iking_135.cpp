@@ -1,4 +1,4 @@
-// SPIRAL ORDER TRAVERSAL IN 2D ARRAY MATRIX
+// *************** SPIRAL ORDER TRAVERSAL IN 2D ARRAY MATRIX ******************
 
 #include<iostream>
 using namespace std;
@@ -7,9 +7,9 @@ int main(){
    
     int n=3;
     int m=3;
-    int arr[3][3]={{1,2,3},
+    int arr[3][3]={{1,2,3},                                     // A 2D ARRAY IS DEFINED
                    {4,5,6},
-                   {7,8,9}};                    // A 2D ARRAY IS DEFINED
+                   {7,8,9}};                    
 
     int row_start=0;                                            // FOUR VARIABLES WHICH HELP TO TRAVERSE IN THE LOOP
     int row_end=n-1;
