@@ -1,4 +1,5 @@
-// SECOND DATASTRUCTURES--> VECTORS( DYNAMIC ARRAY )
+// ****************** VECTORS **********************
+// ( DYNAMIC ARRAY )
 
 #include<iostream>
 #include<vector>                                               // CALLING THE VECTOR OPERATIONS WHICH TO BE USED FURTHER
