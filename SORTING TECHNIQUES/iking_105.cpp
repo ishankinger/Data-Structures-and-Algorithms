@@ -1,4 +1,8 @@
-// QUICK SORT
+// ******************* QUICK SORT *************************
+
+// Quick sort is an example of a divide-and-conquer algorithmic technique. It is also called
+// partition exchange sort. It uses recursive calls for sorting the elements, and it is one of the
+// famous algorithms among comparison-based sorting algorithms.
 
 // DIVIDE AND CONQUERER THEOREM
 
