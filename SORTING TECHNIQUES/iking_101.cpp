@@ -1,4 +1,7 @@
-// SELECTION SORT
+// ****************** SELECTION SORT ******************
+// Selection sort is an in-place sorting algorithm. Selection sort works well for small files. It is used
+// for sorting the files with very large values and small keys. This is because selection is made
+// based on keys and swaps are made only when required.
 
 // TRAVERSE ON EACH ELEMENT VIA FIRST LOOP AND THEN TRAVERSE ON NEXT ELEMENTS TO IT VIA SECOND LOOP
 // IN SECOND LOOP WE WILL SWAP THE MINIMUM ELEMENT
