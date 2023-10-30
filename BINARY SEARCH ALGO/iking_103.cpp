@@ -1,4 +1,4 @@
-// GETTING FIRST OCCURENCE OF X IN THE SORTED ARRAY
+// **************** FIRST OCCURENCE OF X IN THE SORTED ARRAY *******************
 
 #include<iostream>
 using namespace std;
