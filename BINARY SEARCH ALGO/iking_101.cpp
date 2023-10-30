@@ -1,4 +1,4 @@
-// BINARY SEARCH ALGORITHM
+// ********************** BINARY SEARCH ALGORITHM ************4***************
 // GETTING TARGET ELEMENT IN SORTED ARRAY IN O(LOG(N)) USING THIS ALGO
 
 #include<iostream>
