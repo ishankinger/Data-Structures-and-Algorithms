@@ -25,17 +25,17 @@ int main(){
         
         // FROM OUTER IF-ELSE, WE WILL GET TO KNOW WHETHER OUR MID IS IN FIRST INCREASING SERIES OR SECOND INCREASING SERIES
         // IF(_) IS TRUE THEN IT MEANS IT IS IN FIRST INCREASING SERIES
-        if(arr[mid]>arr[low]){   
+        if(arr[mid]>=arr[low]){   
             // SO FOR FIRST INCREASING SERIES CHECK LOW AND MID
             // IF K LIES IN BETWEEN LOW AND MID THEN HIGH COMES BACK ELSE LOW MOVES FORWARD
-            if(k>arr[low] && k<arr[mid]) high=mid-1;
+            if(k>=arr[low] && k<=arr[mid]) high=mid-1;
             else low=mid+1;
             
         // ELSE IF(_) IS TRUE THEN IT MEANS IT IS IN THE SECOND INCREASING SERIES 
-        }else if(arr[mid]<arr[low]){
+        }else if(arr[mid]<=arr[low]){
             // SO FOR SECOND INCREASING SERIES CHECK HIGH AND MID
             // IF K LIES IN BETWEEN HIGH AND MID THEN LOW COMES FORWARD ELSE HIGH MOVES BACK
-            if(k>arr[mid] && k<arr[high]) low=mid+1;
+            if(k>=arr[mid] && k<=arr[high]) low=mid+1;
             else high=mid-1;
         }
     }
