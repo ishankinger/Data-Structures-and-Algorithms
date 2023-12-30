@@ -1,4 +1,4 @@
-// GETTING THE MINIMUM ELEMENT IN A ROTATED ARRAY
+// ***************** GETTING THE MINIMUM ELEMENT IN A ROTATED ARRAY ***********************
 
 #include<iostream>
 using namespace std;
@@ -9,12 +9,15 @@ int findMin(int arr[],int n){
     if(arr[low]<arr[high]) return low;                            // MEANS ARRAY IS NOT ROTATED ONLY SORTED SO FIRST ELEMENT AS OUR ANSWER
     while(low<=high){    
                                                  
-        int mid=(low+high)/2;                                    // TERMINATING CONDITIONS
+        int mid=(low+high)/2;                         
+        
+        // TERMINATING CONDITIONS
         if(arr[mid]>arr[mid+1]) return mid+1;                    // THIS IS POSSIBLE FOR BIGGEST ELEMENT
         else if(arr[mid]<arr[mid-1]) return mid;                 // THIS CONDITION IS POSSIBLE ONLY FOR SMALLEST ELEMENT
-
-        if(arr[mid]>arr[low]) low=mid+1;                         // MOVING CONDITION
-        else high=mid-1;                                         // IF MID>LOW THEN LOWER ELEMENT IN RIGHT OF MID ELSE IN LEFT OF MID
+        
+        // MOVING CONDITION
+        if(arr[mid]>arr[low]) low=mid+1;                         // IF MID>LOW THEN LOWER ELEMENT IN RIGHT OF MID                 
+        else high=mid-1;                                         // ELSE IN LEFT OF MID 
     }
 }
 int main(){

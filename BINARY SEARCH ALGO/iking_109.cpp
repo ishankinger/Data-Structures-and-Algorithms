@@ -1,4 +1,4 @@
-// FIND OUT THE PEAK ELEMENT OF A MOUNTAIN ARRAY
+// ******************** PEAK ELEMENT OF A MOUNTAIN ARRAY *****************************
 // FIRST ARRAY ELEMENTS ARE INCREASING THEN ELEMENTS ARE DECREASING
 
 // SO IF MID IS IN INCREASING ONE THEN SEARCH SPACE WILL ONLY BE RIGHT OF IT AND WE CAN DISCARD THE LEFT OF THE SPACE
@@ -17,18 +17,25 @@ int main(){
     int high=n-1;
     int mid=(low+high)/2;
     while(low<=high){
+        
+        // MID POINTER VALUE
         mid=(low+high)/2;
+        
+        // CONDITION FOR PEAK ELEMENT
         if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1]){
             cout<<arr[mid]<<"\n";
             break;
         }
+        
+        // CONDITION FOR INCREASING SEQUENCE
         if(arr[mid]>arr[mid-1]){
             low=mid+1;
         }
+
+        // CONDITION FOR DECREASING SEQUENCE
         else if(arr[mid]<arr[mid-1]){
             high=mid-1;
         }
     }
-
     return 0;
 }

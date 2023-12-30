@@ -1,4 +1,4 @@
-// IN A STRING GET THE CHARACTER WHICH HAS HIGHEST FREQUENCY
+// ********************** IN A STRING GET THE CHARACTER WHICH HAS HIGHEST FREQUENCY ****************************
 
 #include<iostream>
 #include<string>

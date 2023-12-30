@@ -1,4 +1,7 @@
-// MERGE SORT
+// ****************** MERGE SORT *********************
+
+// In Merge sort the input list is divided into two parts and these are solved recursively. After
+// solving the sub problems, they are merged by scanning the resultant sub problems.
 
 // DIVIDE AND THEN CONQUER ALGORITHM
 
@@ -6,12 +9,15 @@
 using namespace std;
 
 void merge(int arr[], int l, int mid, int r){
+    
     // SIZE OF BOTH THE ARRAYS
     int n1=mid-l+1;
     int n2=r-mid;
+    
     // TEMPORARY ARRAYS ARE CREATED
     int a[n1];
     int b[n2];
+    
     // VALUES ARE INSERTED IN TEMPORARY ARRAYS
     for(int i=0;i<n1;i++){
         a[i]=arr[l+i];
@@ -19,6 +25,7 @@ void merge(int arr[], int l, int mid, int r){
     for(int i=0;i<n2;i++){
         b[i]=arr[mid+i+1];
     }
+    
     // NOW MERGE THE TWO SORTED ARRAY TO GET A NET SORTED ARRAY
     int i=0;
     int j=0;
@@ -34,6 +41,7 @@ void merge(int arr[], int l, int mid, int r){
             j++;
         }
     }
+    
     // CHECKING LEFT ELEMENTS CONDITION
     while(i<n1){                          // CHECKING WHETHER WHOLE ARRAY IS EMPTY OR NOT
         arr[k]=a[i];                      // IF NOT THEN SIMPLY FILL LEFT VALUES AS THESE MUST BE GREATER THAN OUR OTHER ARRAY
@@ -48,13 +56,17 @@ void merge(int arr[], int l, int mid, int r){
 }
 
 void mergeSort(int arr[],int l, int r){   // IT WILL GIVE OUR SORTED ARRAY
+    
+    // BASE CASE
     if(l>=r) return;
+    
     // MAKING SUBSEQUENCES
     int mid=(l+r)/2;                      // FIRST WE WILL MAKE PARTITIONS OF ARRAYS TO BE SORTED
-    mergeSort(arr,l,mid);                 // CALLING FUNCTION TO GET SEPARATED
-    mergeSort(arr,mid+1,r);
+    mergeSort(arr,l,mid);                 // CALLING FIRST HALF OF THE ARRAY
+    mergeSort(arr,mid+1,r);               // CALLING SECOND HALF OF THE ARRAY
+    
     // USING MERGE FUNCTION TO SORT BOTH
-    merge(arr,l,mid,r);                 // AND THEN MERGE BOTH THE RESPECTIVE ARRAYS
+    merge(arr,l,mid,r);                   // AND THEN MERGE BOTH THE RESPECTIVE ARRAYS
 }
 
 int main(){

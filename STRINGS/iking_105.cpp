@@ -1,4 +1,4 @@
-// FORM THE BIGGEST NUMBER FROM THE NUMERIC STRING
+// *************** FORM THE BIGGEST NUMBER FROM THE NUMERIC STRING *******************
 
 #include<iostream>
 #include<string>

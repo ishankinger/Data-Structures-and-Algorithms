@@ -1,4 +1,4 @@
-// FIRST AND LAST OCCURENCE OF THE GIVEN TARGET ELEMENT IN SORTED ARRAY
+// ******************* FIRST AND LAST OCCURENCE OF THE GIVEN TARGET ELEMENT IN SORTED ARRAY ******************
 
 #include<iostream>
 using namespace std;
@@ -14,7 +14,7 @@ int main(){
     while(low<=high){
         int mid=(low+high)/2;
         if(arr[mid]==k){
-            high=mid-1;                                // FOR FIRST OCCURENCE HIGH IS MOVED BACK
+            high=mid-1;                                // FOR FIRST OCCURENCE HIGH IS MOVED BACK TO MID
             ans1=mid;
         }else if(arr[mid]<k) low=mid+1;
         else high=mid-1;
@@ -23,7 +23,7 @@ int main(){
     while(low<=high){
         int mid=(low+high)/2;
          if(arr[mid]==k){
-            low=mid+1;                                 // FOR LAST OCCURENCE LOW IS MOVED ABOVE
+            low=mid+1;                                 // FOR LAST OCCURENCE LOW IS MOVED ABOVE TO MID
             ans2=mid;
         }else if(arr[mid]<k) low=mid+1;
         else high=mid-1;
