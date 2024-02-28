@@ -22,19 +22,29 @@ void display(){
         cout<<"\n";
     }
 }
+
 // visited set is defined
 unordered_set<int> visited;
 
-// function to run dfs on a graph for given two source and dest
+// function to run dfs on a graph for given source and dest
 bool dfs(int curr, int end){
+    
+    // means we reach the destination so return true
     if(curr == end) return true;
+    
+    // mark curr as visited 
     visited.insert(curr);
+
+    // traverse throught all the neighbours of curr that are not visited and call for them as new curr recursively
     for(auto neighbour: graph[curr]){
         if(not visited.count(neighbour)){
+            // if any of neighbour return true means they reached the destination node
             bool result = dfs(neighbour,end);
+            // then return true
             if(result) return true;
         }
     }
+    // else return false
     return false;
 }
 
