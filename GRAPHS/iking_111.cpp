@@ -1,10 +1,12 @@
 // DETECTING A CYCLE IN AN UNDIRECTED GRAPH USING DFS
+// THE SAME CONCEPT USED AS THAT OF IN BFS ONLY DIFFERENCE IS IN RECURSION
 
 #include<bits/stdc++.h>
 using namespace std;
 
 bool dfs(vector<list<int>> graph, vector<int> &visited, int src, int parent){
     visited[src] = 1;
+    // similar concept used in dfs code also
     for(auto neighbour : graph[src]){
         if(neighbour != parent){
             if(visited[neighbour]){
@@ -21,9 +23,9 @@ bool dfs(vector<list<int>> graph, vector<int> &visited, int src, int parent){
 
 bool isCycle(vector<list<int>> graph){
     vector<int> visited(graph.size(),0);
+    // traversing in all the elements to check all the disconnected components
     for(int ele = 0; ele < graph.size(); ele++){
         if(not visited[ele]){
-            cout<<"HI\n";
             visited[ele] = 1;
             bool check = dfs(graph,visited,ele,-1);
             if(check){
