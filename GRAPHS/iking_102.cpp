@@ -1,4 +1,4 @@
-// DFS TRAVERSAL TO CHECK WHETHER A PATH EXIST BETWEEN GIVEN TWO VERTICES
+// DFS TRAVERSAL IN THE GRAPH
 // TIME COMPLEXITY -> O(V + E)
 
 #include<bits/stdc++.h>
@@ -22,10 +22,11 @@ void display(){
         cout<<"\n";
     }
 }
-// visited set is defined
-unordered_set<int> visited;
 
-// function to run dfs on a graph for given two source and dest
+// visited set is defined
+unordered_set<int> visited; // -> keep track of elements that are already added to bfs sequence
+
+// function to run dfs on a graph for given source
 void dfs(int curr,vector<int> &bfs_arr){
     
     // first add the node in sequence and also mark as visited
