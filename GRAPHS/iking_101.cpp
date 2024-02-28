@@ -3,16 +3,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// vector of lists of pair(vertex,weight) which are connected to ith vertex of vector
 vector< list< pair<int,int> > > directed_weighted_graph;
+// no. of vertices
 int v;
 
+// function to add Edge
 void add_edge(int src,int dest,vector<list<pair<int,int>>> &graph,int wt = 1,bool bi_dir = true){
+    // to src list, add dest,wt pair
     graph[src].push_back({dest,wt});
+    // if bidirectional graph then in dest add src,wt
     if(bi_dir){
         graph[dest].push_back({src,wt});
     }
 }
 
+// function to display the graph in an adjacency list
 void display(vector<list<pair<int,int>>> &graph){
     for(int i=0;i<graph.size();i++){
         cout<<i<<" -> ";
