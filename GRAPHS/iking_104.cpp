@@ -23,6 +23,7 @@ void display(){
         cout<<"\n";
     }
 }
+
 // a visited set is defined to check whether our node is visited or not
 unordered_set<int> visited;
 
@@ -43,13 +44,17 @@ vector<int> bfs(int src,vector<int> &dist){
 
     // till qu is not empty
     while(not qu.empty()){
+        
         // the front element of queue is saved and then popped
         int curr = qu.front();
         qu.pop();
+        
         // then we will traverse on the neighbours of the front element
         for(auto neighbour : graph[curr]){
+            
             // if neighbour is not in the set means not visited
             if(not visited.count(neighbour)){
+                
                 // perform same steps as done in source node
                 visited.insert(neighbour);
                 dist[neighbour] = dist[curr] + 1;
