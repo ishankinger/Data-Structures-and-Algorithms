@@ -1,5 +1,7 @@
 // NUMBER OF PROVINCES
 // GIVEN AN UNDIRECTED GRAPH , WE HAVE TO TELL THE TOTAL NUMBER OF CONNECTED COMPONENTS IN IT
+// A SINGLE UNDIRECTED GRAPH WHICH IS CONNECTED FULLY CAN BE TRAVERSED IN ONE SINGLE BFS OR DFS FROM ANY SOURCE NODE
+// IN THIS QUESTION THERE ARE MULTIPLE CONNECTED COMPONENTS FORM ONE SINGLE GRAPH SO WE HAVE TO TELL NO. OF ALL COMPONENTS
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -35,8 +37,12 @@ void dfs(int src){
 
 }
 
+// function to get total components of the graph
 int numberOfProvinces(){
     int count = 0;
+    // we will run dfs assuming all elements as source using a for loop
+    // when we get an element from a particular component which is not intially covered that means new component is present
+    // so we will do count++
     for(int ele = 0; ele < graph.size(); ele++){
         if(not visited.count(ele)){
             dfs(ele);
