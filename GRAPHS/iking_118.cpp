@@ -1,47 +1,68 @@
 // DETECT A CYCLE IN A DIRECTED GRAPH USING DFS 
-// SIMILAR CONCEPT USED AS THAT OF USED IN BFS TRAVERSAL ONLY TECHNIQUE IS DIFFERENT
+// SO HERE TO DETECT A CYCLE WE NEED TO HAVE TWO THINGS ONE IS CONNECTIVITY AND ANOTHER IS THE DIRECTION OF CYCLE ALSO
+// THIS TIME WE WILL BE HAVING TWO CONDITIONS ONE IS IT SHOULD BE VISITED AND OTHER IS IT SHOULD BE PATH VISITED ALSO
+// IF ANY OF CONDITION IS NOT VALID THEN WE CAN'T SAY THAT THE CYCLE HAS A CYCLE
+// PATH VISITED WILL BECOME UNVISITED WHEN WE ARE RETURNING FROM IT
 
 #include<bits/stdc++.h>
 using namespace std;
 
-bool dfs(int src, vector<int> &color, vector< list<int> > graph, int col){
-    
-    // first change the color to not of it's parent one
-    color[src] = not(col);
+bool dfs(int src, vector< list<int> > graph, vector<int> &vis, vector<int> &path_vis){
 
-    // traverse to all the neighbours of our curr node
+    // make visited and path visited once
+    vis[src] = 1;
+    path_vis[src] = 1;
+
+    // traverse to all of it's neighbours
     for(auto neighbour : graph[src]){
 
-        // if neighbour is not visited 
-        if(color[neighbour] == -1){
+        // if not visited yet then we will move
+        if(not vis[neighbour]){
 
-            // call for it's neighbour and if we get false from this call then return false
-            if(not dfs(neighbour,color,graph,color[src]))
-                return false;  
-        }
+            // if we get true from further calls the return true
+            if(dfs(neighbour,graph,vis,path_vis)){
+                return true;
+            }
 
-        // else if neighbour is already visited
-        else{
-
-            // if they have same color then return false
-            if(color[neighbour] == color[src]){
-                return false;
+            // else while returning we will make path unvisited
+            else{
+                path_vis[neighbour] = 0;
             }
         }
-    }
-    return true;
-}
 
-bool isBipartite(vector< list<int> > graph){
-    vector<int> color(graph.size(),-1);
-    // traverse in all the nodes
-    for(int i = 0; i < graph.size(); i++){
-        if(color[i] == -1){
-            bool check = dfs(i,color,graph,1);
-            if(not check) return false;
+        // if already visited then check the condition
+        else{
+
+            // if path visited also then we got cycle return true
+            if(path_vis[neighbour]){
+                return true;
+            }
+            // otherwise it is connected but not direction wise
         }
     }
-    return true;
+    return false;
+}
+
+bool isCycle(vector< list<int> > graph){
+
+    // visited and path visited arrays are defined
+    vector<int> vis(graph.size(),0);
+    vector<int> path_vis(graph.size(),0);
+
+    // for all elements we have to do dfs as for directed graph also we can't get all elements traversed in once
+    for(int i = 0; i < graph.size(); i++){
+
+        // not visited then we will do dfs
+        if(not vis[i]){
+
+            // if we get true means cycle present the we will directly return true
+            bool check = dfs(i,graph,vis,path_vis);
+            if(check) return true;
+        }
+    }
+    
+    // else we will return false
+    return false;
 }
 
 int main(){
@@ -55,7 +76,6 @@ int main(){
         int u, v;
         cin >> u >> v;
         graph[u].push_back(v);
-        graph[v].push_back(u);
     }
 
     for(int ele = 0; ele < graph.size(); ele++){
@@ -66,11 +86,11 @@ int main(){
         cout << "\n";
     }
 
-    if(isBipartite(graph)){
-        cout << "The graph is Bipartite\n";
+    if(isCycle(graph)){
+        cout<<"The graph has a cycle\n";
     }
     else{
-        cout << "The graph is not Bipartite\n";
+        cout<<"The graph doesnot have a cycle\n";
     }
 
     return 0;
