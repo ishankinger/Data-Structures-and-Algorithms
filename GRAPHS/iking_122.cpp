@@ -1,8 +1,10 @@
 // DETECT A CYCLE IN DIRECTED GRAPH USING BFS ALGORITHM
+// KAHN'S ALGO IS VALID FOR DAG ONLY BUT IF IT'S CYCLIC THEN IT WILL NOT GIVE FULL SEQUENCE
 
 #include<bits/stdc++.h>
 using namespace std;
 
+// applying same code of kahn's algorithm
 int isCycle(vector< vector<int> > graph){
     vector<int> topo;
     vector<int> indegree(graph.size(),0);
@@ -49,6 +51,8 @@ int main(){
         cout<<"\n";
     }
     cout<<isCycle(graph)<<"\n";
+
+    // if there is difference in size then graph has a cycle as kahn's algo doesnot give correct answer for cyclic graphs
     if(isCycle(graph) == graph.size()) cout << "The graph doesnot have cycle\n";
     else cout << "The graph has a cycle\n";
 
