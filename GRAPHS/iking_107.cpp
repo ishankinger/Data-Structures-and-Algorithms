@@ -48,7 +48,7 @@ int numOfIslands(int n, int m,vector<vector<int>> grid){
 
     // we have to visit all the nodes to check whether any node is remained unvisited then we will do one more bfs on it
     for(int i = 0; i < n; i++){
-        for(int j = 0; j < m;i++){
+        for(int j = 0; j < m; j++){
             if(not visited[i][j] and grid[i][j] == 1){
                 bfs(i,j,visited,grid);
                 count++;

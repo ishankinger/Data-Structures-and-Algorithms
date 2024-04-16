@@ -48,6 +48,50 @@ int numOfEnclaves(vector< vector<int> > grid){
     return count;
 }
 
+// more space optimised
+int numEnclaves_spaceOptimise(vector<vector<int>>& grid) {
+    int n = grid.size();
+    int m = grid[0].size();
+    vector< vector<int> > visited(n,vector<int>(m,0));
+    queue< pair<int,int> > q;
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if((i == 0 || j == 0 || i == n-1 || j == m-1) and grid[i][j] == 1){
+                visited[i][j] = 1;
+                q.push({i,j});
+            }
+        }
+    }
+
+    int dr[] = {-1,0,+1,0};
+    int dc[] = {0,+1,0,-1};
+    while(not q.empty()){
+        int sr = q.front().first;
+        int sc = q.front().second;
+        q.pop();
+
+        for(int i = 0; i < 4; i++){
+            int nr = sr + dr[i];
+            int nc = sc + dc[i];
+            if(nr >= 0 and nr < n and nc >= 0 and nc < m 
+                and grid[nr][nc] == 1 and not visited[nr][nc]){
+                    visited[nr][nc] = 1;
+                    q.push({nr,nc});
+            }
+        }
+    }
+    
+    int count = 0;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(not visited[i][j] and grid[i][j] == 1){
+                count++;
+            }
+        }
+    }
+    return count;
+}
 
 int main(){
     int n, m;
