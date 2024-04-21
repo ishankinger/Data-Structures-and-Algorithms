@@ -3,9 +3,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// function to print the minimum distance path from 1 to n
 vector<int> minDistPath(vector< vector< pair<int,int> > > graph){
+
+    // same procedure of dijkstra is followed
+    // here instead of node the whole path to the node is covered
     vector<int> dist(graph.size(),INT_MAX);
-    priority_queue< pair< int,vector<int> > > pq;
+    priority_queue< pair< int,vector<int> > , vector< pair< int,vector<int> > > , greater< pair< int,vector<int> > >  > pq;
     pq.push({0,{0}});
     dist[0] = 0;
     vector<int> ans;

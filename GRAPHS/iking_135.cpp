@@ -1,4 +1,8 @@
 // SHORTEST DISTANCE IN A BINARY MAZE
+// GIVEN A N*M GRID AND CELLS OF SOURCE AND DESTINATION ARE ALSO GIVEN
+// WE HAVE TO RETURN THE SHORTEST DISTANCE FROM SRC TO DST
+// WE CAN GET THE ANSWER TO THIS PROBLEM USING QUEUE ONLY ALSO AS HERE FROM EACH CELL INCREMENT IS OF 1 ONLY MEANS ALL HAVE SAME WEIGHT
+// WE WILL BE USING SIMPLE DIJKSTRA TO SOLVE THIS PROBLEM
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -8,7 +12,8 @@ int shortestDist(vector< vector<int> > grid, int sr, int sc, int dr, int dc){
     int m = grid[0].size();
     vector< vector<int> > dist(n,vector<int>(m,INT_MAX));
     set< pair< int,pair<int,int> > > st;
-    st.insert({0,{sr,sc}});
+    if(grid[sr][sc] == 0) return -1;
+    else st.insert({0,{sr,sc}});
     dist[sr][sc] = 0;
     int delRow[] = {0,+1,0,-1};
     int delCol[] = {+1,0,-1,0};
@@ -20,7 +25,7 @@ int shortestDist(vector< vector<int> > grid, int sr, int sc, int dr, int dc){
         st.erase(st.begin());
         if(row == dr and col == dc){
             minPathLen = min(minPathLen,pathLen);
-            continue;
+            break;
         }
         for(int i = 0; i < 4; i++){
             int nr = row + delRow[i];

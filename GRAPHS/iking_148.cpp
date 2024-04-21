@@ -1,4 +1,10 @@
 // ACCOUNT MERGE
+// HERE WE ARE GIVEN DIFFERENT USERS AND FOR EACH USER WE ARE PROVIDED WITH SOME OF HIS EMAILS
+// THE SAME USER CAN REPEAT WITH DIFFERENT SET OF EMAILS
+// IF FOR SAME NAME USER, AT LEAST ONE EMAIL MATCHES THEN WE CAN MERGE THAT USER'S EMAILS INTO ONE SET
+// RETURN THE NEW UPDATED LIST OF USERS WITH NEW SET OF EMAILS MERGED
+// IT CAN BE POSSIBLE THAT TWO USERS HAVE SAME NAME BUT NO EMAIL IS MATCHED SO CONSIDER DIFFERENT AND REPRESENT IN DIFFERENT LISTS
+// ALSO EMAILS ADDRESSES SHOULD BE IN SORTED ORDER
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -53,19 +59,34 @@ class DisjointSet{
         }
 };
 
+// function to merge the accounts of the user
 vector< vector< string > > accountsMerge(vector< vector<string> > details){
+    
+    // disjoint set for each initial user is created giving each user 0 based indices
     DisjointSet ds(details.size());
     int n = details.size();
+    
+    // initial sort the details string vector
     sort(details.begin(), details.end());
+    
+    // map storing email's owner number index
     unordered_map<string,int> mapMailNode;
+    
+    // go in the details of users one by one to merge the accounts
     for(int i = 0; i < n; i++){
         for(int j = 1; j < details[i].size(); j++){
+            
+            // mail of the user
             string mail = details[i][j];
+            
             // mail not seen earlier
+            // so this user will become the owner of this email for now
             if(mapMailNode.find(mail) == mapMailNode.end()){
                 mapMailNode[mail] = i;
             }
+            
             // mail seen earlier
+            // so present user and user who is owner of this email will be merged
             else{
                 ds.unionBySize(i,mapMailNode[mail]);
             }

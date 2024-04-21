@@ -68,7 +68,7 @@ int makeNetworkConnected(vector< vector<int> > graph, int V){
     }
     
     if(extraEdges >= (count-1)) return count-1;
-    else return 0; 
+    else return -1; 
 }
 
 int main(){

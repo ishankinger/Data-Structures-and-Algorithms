@@ -1,4 +1,7 @@
 // PATH WITH MINIMUM EFFORT
+// GIVEN A N*M GRID AND WE HAVE TO TELL THE PATH WITH MINIMUM EFFORT FROM 0,0 TO N-1,M-1
+// EFFORT IS EQUAL TO THE DIFFERENCE OF THE CELL'S HEIGHTS
+// SO WE HAVE TO MINIMIZE THE TOTAL PATH EFFORT
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -19,6 +22,7 @@ int minimumEffort(vector< vector<int> > grid){
         int effort = pq.top().first;
         if(row == n-1 and col == m-1){
             minEffort = min(minEffort,effort);
+            break;
         }
         pq.pop();
         for(int i = 0; i < 4; i++){

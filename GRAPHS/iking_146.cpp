@@ -55,11 +55,15 @@ class DisjointSet{
 
 int numProvinces(vector< vector<int> > graph, int V){
     DisjointSet ds(V);
+    
+    // union all the nodes attached to each other by edges using disjoint set datastructure
     for(int i = 0; i < V; i++){
         for(int j = 0; j < graph[i].size(); j++){
             ds.unionBySize(i,graph[i][j]);
         }
     }
+
+    // the number of nodes who are parent of itself will give us all different disjoint sets
     int count =  0;
     for(int i = 0; i < V; i++){
         if(ds.findUParent(i) == i) count++;

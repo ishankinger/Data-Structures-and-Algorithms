@@ -1,25 +1,29 @@
 // FLOYD WARSHALL ALGORITHM
+// MULTI SOURCED SMALLEST PATH ALGO AND ALSO HELP IN DETECTING NEGATIVE CYCLES
 // TIME COMPLEXITY -> O(N^3)
 
 #include<bits/stdc++.h>
 using namespace std;
 
+// function to get shortest path from any given node to any other node of the graph
 vector< vector<int> > floydWarshallAlgo(vector< vector< pair<int,int> > > graph){
     
+    // first a distMatrix is initialised of size of graph.size()
     vector< vector<int> > distMatrix(graph.size(), vector<int>(graph.size(),INT_MAX));
     
+    // u ----> v edge weight is filled in the matrix in (u,v) cell and for no edge mark it as INT_MAX
     for(int i = 0; i < graph.size(); i++){
         for(int j = 0; j < graph[i].size(); j++){
             distMatrix[i][graph[i][j].first] = graph[i][j].second; 
         }
     }
     
+    // initialise the distMatrix with (i,i) cell values to be 0
     for(int i = 0; i < graph.size(); i++){
-        for(int j = 0; j < graph.size(); j++){
-            if(i == j) distMatrix[i][j] = 0;
-        }
+        distMatrix[i][i] = 0;
     }
     
+    // i ----> via ----> j compare the distance value of (i,j) with distance from i via j
     for(int via = 0; via < graph.size(); via++){
         for(int i = 0; i < graph.size(); i++){
             for(int j = 0; j < graph.size(); j++){
@@ -30,6 +34,7 @@ vector< vector<int> > floydWarshallAlgo(vector< vector< pair<int,int> > > graph)
         }
     }
 
+    // if distMatrix is negative then negative cycle present
     for(int i = 0; i < graph.size(); i++){
         if(distMatrix[i][i] < 0){
             cout << "NEGATIVE CYCLE PRESENT\n";
@@ -58,6 +63,7 @@ int main(){
         cout << "\n";
     }
 
+    // printing the shortest distances between all nodes
     vector< vector<int> > shortestArr = floydWarshallAlgo(graph);
     for(int i = 0; i < shortestArr.size(); i++){
         for(int j = 0;j < shortestArr[i].size(); j++){

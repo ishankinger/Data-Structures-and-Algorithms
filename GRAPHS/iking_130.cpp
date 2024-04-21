@@ -1,1 +1,1 @@
-// WORD LADDER 2
+// WORD LADDER - 2

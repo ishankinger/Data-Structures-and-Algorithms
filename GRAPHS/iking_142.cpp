@@ -1,9 +1,14 @@
 // CITY WITH THE SMALLEST NUMBER OF NEIGHBOUR AT A THRESHOLD DISTANCE
+// WE WANT TO GET THE CITY WITH SMALLEST NUMBERS OF NEIGHBOURS AT A THRESHOLD DISTANCE
+// SO WE WILL BE USING FLOYD WARSHALL ALGORITHM FROM WHICH WE WILL GET DISTANCES OF ALL THE CITIES FROM EACH OTHER
+// THEN FOR EVERY CITY WE WILL COUNT THE NUMBER OF CITIES LYING UNDER THE THRESHOLD DISTANCE AND MINIMUM OF THAT WILL BE OUR ANSWER
 
 #include<bits/stdc++.h>
 using namespace std;
 
 int cityNeeded(vector< vector< pair<int,int> > > graph, int threshold){
+
+    // initialising the distance matrix
     vector< vector<int> > distMatrix(graph.size(), vector<int>(graph.size(),INT_MAX));
     
     for(int i = 0; i < graph.size(); i++){
@@ -18,6 +23,7 @@ int cityNeeded(vector< vector< pair<int,int> > > graph, int threshold){
         }
     }
     
+    // get min distance matrix
     for(int via = 0; via < graph.size(); via++){
         for(int i = 0; i < graph.size(); i++){
             for(int j = 0; j < graph.size(); j++){
@@ -28,6 +34,7 @@ int cityNeeded(vector< vector< pair<int,int> > > graph, int threshold){
         }
     }
 
+    // counting the cities satisfying our codition
     vector<int> cityNum(graph.size(),0);
     for(int i = 0; i < graph.size(); i++){
         for(int j = 0; j < graph.size(); j++){
@@ -37,6 +44,7 @@ int cityNeeded(vector< vector< pair<int,int> > > graph, int threshold){
         }
     }
 
+    // getting the city with minimum number
     int ans = -1;
     int minNum = INT_MAX;
     for(int i = 0; i < cityNum.size(); i++){
