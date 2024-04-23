@@ -1,4 +1,5 @@
 // PRINTING SHORTEST PATH FROM 0 TO N-1 ( SECOND METHOD )
+// HERE WE WILL BE USING A PARENT ARRAY WHICH WILL STORE THE PARENTS OF ALL THE NODES WHENEVER THE NODE IS PUSHED INTO THE PRIORITY QUEUE
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -11,7 +12,7 @@ vector<int> minDistArr(vector< vector< pair<int,int> > > graph){
 
     // priority queue - min heap containing node and it's edge weight
     priority_queue< pair<int,int>, vector< pair<int,int> > , greater< pair<int,int> > > pq;
-    
+
     // parent vector storing the parent of each node and will be used in printing the path
     vector<int> parent(graph.size());
 

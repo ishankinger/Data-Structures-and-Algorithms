@@ -10,6 +10,7 @@ using namespace std;
 int shortestDist(vector< vector<int> > grid, int sr, int sc, int dr, int dc){
     int n = grid.size();
     int m = grid[0].size();
+    // here 2-d distance array will be formed
     vector< vector<int> > dist(n,vector<int>(m,INT_MAX));
     set< pair< int,pair<int,int> > > st;
     if(grid[sr][sc] == 0) return -1;

@@ -1,5 +1,7 @@
 // NUMBER OF OPERATIONS TO MAKE NETWORK CONNECTED
- 
+// OPERATION - REMOVE AN EDGE FROM ANY TWO VERTICES AND ATTACH TO ANTOHER VERTICES 
+// MINIMUM OPERATIONS TO MAKE THE GRAPH CONNECTED
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -53,8 +55,13 @@ class DisjointSet{
         }
 };
 
+// funtion to give minimum operations to make graph connected
 int makeNetworkConnected(vector< vector<int> > graph, int V){
     DisjointSet ds(V);
+    
+    // first we will count extra edges
+    // if two nodes have same parent means they are already connected to each other
+    // again if any edge comes between them means it is extra and is of no need so count
     int extraEdges = 0;
     for(int i = 0; i < V; i++){
         for(int j = 0; j < graph[i].size(); j++){
@@ -62,11 +69,16 @@ int makeNetworkConnected(vector< vector<int> > graph, int V){
             ds.unionBySize(i,graph[i][j]);
         }
     }
+
+    // count the total no. of disconnected components
+    // we will be requiring n-1 edges to attach n disconnected components
     int count =  0;
     for(int i = 0; i < V; i++){
         if(ds.findUParent(i) == i) count++;
     }
     
+    // if we have enough extra edges to connect the diconnected components then return count-1
+    // else we can't make the graph connected
     if(extraEdges >= (count-1)) return count-1;
     else return -1; 
 }
