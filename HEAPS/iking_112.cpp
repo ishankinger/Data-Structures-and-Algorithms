@@ -20,9 +20,9 @@ int main(){
     priority_queue<int,vector<int>,greater<int>>pqr; // MIN HEAP ( WRITE GREATER<INT> TO DISINGUISH)
     pqr.push(4);                                      
     pqr.push(3);
-    pqr.push(7);
+    pqr.push(3);
     pqr.push(1);
-    pqr.push(2);
+    pqr.push(3);
     for(int i=0;i<5;i++){
         cout<<pqr.top()<<" ";                       // TOP ELEMENT WILL BE THE MINIMUM ELEMENT
         pqr.pop();                                  // TOP ELEMENT WILL BE POP OUT

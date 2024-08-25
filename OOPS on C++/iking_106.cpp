@@ -1,6 +1,7 @@
 // NESTING OF MEMBER FUNCTIONS
 // FUNCTIONS WHICH ARE USED IN A PARTICULAR CLASS ARE CALLED MEMBER FUNCTIONS
 // NESTING MEANS IN ANY MEMBER FUNCTIONS WE CAN USE THAT FUNCTION IN OTHER FUNCTION
+// EVEN PRIVATE MEMBER FUNCTIONS CAN BE USED IN OTHER MEMBER FUNCTIONS WHILE OBJECT CAN'T USE THE PRIVATE FUNCTIONS USING DOT OPERATOR
 
 #include<iostream>
 #include<string>
@@ -39,8 +40,8 @@ void Binary :: chk_bin(void){                              // FUNCTION TO CHECK 
 }
 
 void Binary :: ones(void){                                 // FUNCTION TO NOT THE GIVEN BINARY NUMBER 
-int k=0;
-cout<<"our modified string is -"<<endl;                          
+    int k=0;
+    cout<<"our modified string is -"<<endl;                          
     for(int i=0;i<s.length();i++){                          // MEANS IF IT IS 1 MAKE IT 0 AND VICE VERSA
         if(s.at(i)=='0'){
             cout<<'1';
@@ -55,6 +56,7 @@ cout<<"our modified string is -"<<endl;
     }
     cout<<endl;
 };
+
 void Binary :: display(void){                               // PRINTING OF THE CHARACTERS OF THE GIVEN STRING
     cout<<"our given string is "<<endl;                     // FUCNTION FOR NESTING OF THE LOOP
     for(int i=0;i<s.length();i++){
@@ -72,6 +74,7 @@ int main(){
     b.display();                                            // IN THIS FIRST CHK_BIN WILL BE USED AND THEN ONES AND THEN ITS MAIN CODE 
    // b.ones();                                             // IN THIS ITS MAIN CODE WILL BE USED
 }
+
 // IF ANY MEMBER FUNCTIONS ARE MADE PRIVATE THEN WE CANNOT USE THAT DIRECTLY IN MAIN FUNCTION AS DONE ABOVE
 // BUT NESTING OF THAT PRIVATE FUNCTION CAN BE DONE
 // IN ABOVE WE MAKE ONES FUNCTION AS PRIVATE SO IT IS USED IN NESTED FUNCTIONS BUT WHEN WE USE IT DIRECTLY USING OBJECT.ONES() THEN IT WILL 

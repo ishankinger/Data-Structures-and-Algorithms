@@ -3,6 +3,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+vector<int> sortedSquares(vector<int>& nums) {
+    vector<int> ans;
+    int front = 0, back = nums.size()-1;
+    while(front <= back){
+        if(abs(nums[front]) > abs(nums[back])){
+            ans.push_back(nums[front]*nums[front]);
+            front++;
+        }
+        else{
+            ans.push_back(nums[back]*nums[back]);
+            back--;
+        }
+    }
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
+
 int main(){
     vector<int>v;
     v={-9,-5,3,6,7};

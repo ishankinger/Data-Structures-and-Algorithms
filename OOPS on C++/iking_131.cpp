@@ -24,14 +24,18 @@ int main(){
     int size=3;
     int p;
     float q;
+    
     shop *ptr= new shop[size];                                 // USING THIS SYNTAX WE CAN GET ARRAY DERIVED FROM POINTERS
+    
     shop *ptrTemp=ptr;                                         // ONE MORE POINTER POINTING TO FIRST ELEMENT WHICH WE WILL BE USING FURTHER
+    
     for(int i=0;i<size;i++){                                   // LOOP FOR TAKING INPUT OF ID AND PRICE
         cout<<"Id and price of item "<<i+1<<endl;
         cin>>p>>q;
         ptr->setData(p,q);                                     // TAKE DATA FOR FIRST ELEMENT
         ptr++;                                                 // THEN JUMP TO NEXT ONE
     }
+    
     for(int i=0;i<size;i++){                                   // TO PRINT ALL ITEM'S ID AND PRICE
         cout<<"Item number : "<<i+1<<endl;
         ptrTemp->getData();                                    // AS PTR IS ALREADY AT LAST POSITION SO WE USE ANOTHER POINTER VARIABLE TO 

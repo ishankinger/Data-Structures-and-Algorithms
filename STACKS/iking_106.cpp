@@ -55,6 +55,28 @@ void reverse(stack<int>&st){                  // THIS REVERSING WILL OCCUR WITH 
     insertAtBottom(st,ele);                  // AT END WE WILL USE INSERT AT BOTTOM FUCNTION TO GET REVERSING THE STACK
 }
 
+// SORTING THE ELEMENTS OF THE STACK
+
+void sortStackHelper(stack<int> &st, int num){
+	if(st.empty() or st.top() < num){
+		st.push(num);
+		return;
+	}
+	int ele = st.top();
+	st.pop();
+	sortStackHelper(st,num);
+	st.push(ele);
+}
+
+void sortStack(stack<int> &st){
+	if(st.empty()) return;
+    
+	int num = st.top();
+	st.pop();
+	sortStack(st);
+	sortStackHelper(st,num);
+}
+
 int main(){
     stack<int>st;
     for(int i=5;i>=1;i--) st.push(i);

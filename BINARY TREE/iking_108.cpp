@@ -44,24 +44,37 @@ int calcDiameter(Node* root){
 // APPROACH 2 -
 // IN THIS WE WILL BE USING POINTERS CONCEPT TO GET HEIGHT
 // TIME COMPLEXITY => O(N)
-
-int calcDiameter_Optimised(Node* root, int &height){    // AMPERSANT OPERATOR IS USED SO THAT THE HEIGHT CAN BE MODIFIED EACH TIME IN THE FUNCTION        
-    if(root==NULL){                                  
-        height=0;
-        return 0;
+class Solution {
+public:
+    // Function to find the diameter of a binary tree
+    int diameterOfBinaryTree(Node* root) {
+        // Initialize the variable to store the diameter of the tree
+        int diameter = 0;
+        // Call the height function to traverse the tree and calculate diameter
+        height(root, diameter);
+        // Return the calculated diameter
+        return diameter;
     }
 
-    int lh=0,rh=0;
-    
-    int lDiameter = calcDiameter_Optimised(root->left,lh);
-    int rDiameter = calcDiameter_Optimised(root->right,rh);
+private:
+    // Function to calculate the height of the tree and update the diameter
+    int height(Node* node, int& diameter) {
+        // Base case: If the node is null,return 0 indicating the height of an empty tree
+        if (!node) {
+            return 0;
+        }
 
-    int currDiameter = lh+rh+1;
-    
-    height = max(lh,rh)+1;
+        // Recursively calculate the height of left and right subtrees
+        int lh = height(node->left, diameter);
+        int rh = height(node->right, diameter);
 
-    return max(currDiameter,max(lDiameter,rDiameter));
-}
+        // Update the diameter with the maximum of current diameter or sum of left and right heights
+        diameter = max(diameter, lh + rh);
+
+        // Return the height of the current node's subtree
+        return 1 + max(lh, rh);
+    }
+};
 
 int main(){
     struct Node* root= new Node(1);
@@ -72,9 +85,6 @@ int main(){
     root->right->left=new Node(6);
     root->right->right=new Node(7);
     root->right->right->right = new Node(8);
-    int height=0;
-    // int *ptrToHeight= &height;
-    //cout<<calcDiameter(root)<<"\n";
-    cout<<calcDiameter_Optimised(root,height);
+    cout<<calcDiameter(root)<<"\n";
     return 0;
 }

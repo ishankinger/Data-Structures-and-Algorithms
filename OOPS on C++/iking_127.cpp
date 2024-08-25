@@ -1,10 +1,11 @@
 // VIRTUAL BASE CLASS
+// HERE MULTIPLE , MULTILEVEL AND HIERARICHAL INHERITANCE ARE INVOLVED
 //      A           ==> A WILL BE VIRTUAL BASE CLASS
 //    /   \
 //   B     C
 //    \   /
 //      D
-// ANY VARIABLE OF A WILL BE IN B AND C BOTH SO D WILL HAVE TWO SAME VARIANLE SO THERE IS SOME AMBIGITYT
+// ANY VARIABLE OF A WILL BE IN B AND C BOTH SO D WILL HAVE TWO SAME VARIABLE SO THERE IS SOME AMBIGITYT
 // SO THERE WILL BE AMBIGUITY
 
 #include<iostream>
@@ -14,6 +15,9 @@ class Student{                                                               // 
     protected:                                                               // SIMILAR FORMAT FOR GETTING ROLL NO OF A STUDENT
         int roll_no;
     public:
+        Student(){
+            cout << "Student Virtual\n";
+        }
         void set_no(int a){
             roll_no=a;
         }
@@ -26,6 +30,9 @@ class Test : virtual public Student{                                         // 
     protected:                                                               // USING PUBLIC VISIBILITY MODE FROM STUDENT CLASS
         float maths,physics;                                                 // SO HERE INT ROLL NO WILL BE TAKEN AS PROTECTED AND OTHER 
     public:                                                                  // FUNCTIONS TO BE TAKEN AS PUBLIC
+        Test(){
+            cout << "Test\n";
+        }
         void set_marks(float m1,float m2){                                   // ABOVE PROCEDURE IS TO JUST SET AND GET MARKS DONE EARLIER
             maths=m1;
             physics=m2;
@@ -37,10 +44,13 @@ class Test : virtual public Student{                                         // 
         }
 };
 
-class Sports : virtual public Student{                                        // SECOND DERIVED CLASS
+class Sports : virtual public Student{                                        // SECOND DERIVED CLASS, VIRTAUL AND PUBLIC CAN BE USED IN ANY ORDER
     protected:                                                                // ALL THINGS SIMILAR AS THAT OF FIRST DERIVED CLASS
         float score;
     public:
+        Sports(){
+            cout << "Sports\n";
+        }
         void set_score(float sc){
             score=sc;
         } 
@@ -49,15 +59,34 @@ class Sports : virtual public Student{                                        //
         } 
 };
 
-class Result : public Test, public Sports{                                     // THIRD DERIVED CLASS DERIVED FROM FIRST AND SECOND DERIVED CLASS
-    private:
+class Music{
+    protected:
+        float points;
+    public:
+        Music(){
+            cout << "Music Non Virtual\n";
+        }
+        void set_points(float p){
+            points = p;
+        }
+        void print_points(void){
+            cout << "Your points in Music is :" << points << "\n";
+        }
+};
+
+class Result : public Sports, public Music, public Test{    // THIRD DERIVED CLASS DERIVED FROM FIRST AND SECOND DERIVED CLASS AND ONE ANOTHER CLASS MUSIC                                
+    private:                                                
         float total;
     public:
+        Result(){
+            cout << "Result\n";
+        }
         void display(void){
-            total=maths+physics+score;
+            total=maths+physics+score+points;
             print_no();
             print_marks();
             print_score();
+            print_points();
             cout<<"Your total score is : "<<total<<endl;
         }
 }; 
@@ -67,6 +96,10 @@ int main(){                                                                 // I
     harry.set_no(12);
     harry.set_marks(78,90);
     harry.set_score(79);
+    harry.set_points(45);
     harry.display();
     return 0;
 }
+
+// THE CONSTRUCTOR OF VIRTUAL BASE CLASSES ARE INVOKED BEFORE AN NON VIRTUAL BASE CLASS EVEN IF ANY NON VIRTUAL CLASS IS DEFINED FIRST
+// IF THERE ARE MULTIPLE VIRTUAL BASE CLASSES, THEY ARE INVOKED IN THE ORDER DECLARED

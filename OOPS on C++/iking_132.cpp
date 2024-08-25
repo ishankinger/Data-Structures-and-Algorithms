@@ -17,7 +17,7 @@ class A{
             cout<<"The value of a is "<<a<<endl;
             cout<<"The value of b is "<<b<<endl;
         }
-        A & setdata(int a,int b){
+        A setdata(int a,int b){
             this->a=a;
             this->b=b;
             return *this;
@@ -31,5 +31,8 @@ int main(){
     a.getData();
     
     a.setdata(1,2).getData();
+
+    a.getData();
+    
     return 0;
 }

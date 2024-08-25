@@ -5,6 +5,7 @@
 //               |>X|
 
 #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main(){
@@ -35,4 +36,27 @@ int main(){
      }else{
         cout<<"element not found";
      }
+}
+
+// ********** SEARCH IN A 2-D MATRIX ***********
+
+bool searchMatrix(vector<vector<int>>& matrix, int target) {
+    int n = matrix.size();
+    int m = matrix[0].size();
+    int low = 0;
+    int high = n*m - 1;
+    int mid, i_mid, j_mid;
+    while(low <= high){
+        mid = (low + high)/2;
+        i_mid = mid / m;
+        j_mid = mid % m;
+        if(matrix[i_mid][j_mid] > target){
+            high = mid - 1;
+        }
+        else if(matrix[i_mid][j_mid] < target){
+            low = mid + 1;
+        }
+        else return true;
+    }
+    return false;
 }

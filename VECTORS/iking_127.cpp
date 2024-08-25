@@ -24,6 +24,7 @@ int main(){
         if(sum==givenSum){
             cout<<"WE GET THE GIVEN SUM FROM "<<j<<" TO "<<i<<"\n";
             check=false;
+            break;
         }
     }
     if(check) cout<<"THERE IS NO SUB-ARRAY SUMMING UP TO GIVE OUR REQUIRED GIVEN SUM\n";

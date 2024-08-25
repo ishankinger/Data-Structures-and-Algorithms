@@ -5,6 +5,8 @@
 #include<iostream>
 using namespace std;
 
+// FOR MULTIPLE INHERITANCE
+// HAVE TO DEFINE IN THE DERIVED CLASS USING SCOPE RESOLUTION OPERATOR
 class Base1{                                                // FIRST BASE CLASS
     public: 
         void greet(){                                       // SIMPLE PUBLIC FUNCTION OF GREET
@@ -27,7 +29,8 @@ class derived: public Base1,public Base2{                   // DERIVED CLASS
 };
 
 // FOR SINGLE LEVEL AND MULTILEVEL INHERITANCE
-
+// IF FUNCTION DEFINED IN CLASS THEN TAKE BY DEFAULT THAT FUNCTION, IF NOT DEFINED THEN 
+// IT WILL TAKE FROM THE LAST DERIVED CLASS
 class B{
     public:
         void say(){
@@ -59,9 +62,14 @@ int main(){
     B b; 
     b.say();
     D d;
-    d.say();                         // IF FUNCTION WRITTEN THEN TAKE BY DEFAULT IF NOT WRITTEN THEN IT WILL TAKE FROM BASE CLASS
-    E e;                             // FOR MULTILEVEL IT WILL TAKE FROM THE LAST DERIVED CLASS 
+    d.say();                         
+    E e;                       
     e.say();
+
+    // CAN ALSO DEFINE PARTICULARY WHICH FUNCTION TO USE IN MULTILEVEL INHERITANCE USING SCOPE RESOLUTION OPERATOR
+    e.E::say();
+    e.D::say();
+    e.B::say();
 
     return 0;
 }

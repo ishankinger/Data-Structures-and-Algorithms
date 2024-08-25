@@ -3,7 +3,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct Node{                                // BINARY TREE'S NODE STORE ONE VALUE AND HAVE TWO POINTERS POINTING TO IT'S TWO CHILDREN
+class Node{                                // BINARY TREE'S NODE STORE ONE VALUE AND HAVE TWO POINTERS POINTING TO IT'S TWO CHILDREN
+    public:
     int data;
     struct Node*left;                       // FOR LEFT SUB-TREE
     struct Node*right;                      // FOR RIGHT SUB-TREE
@@ -16,7 +17,7 @@ struct Node{                                // BINARY TREE'S NODE STORE ONE VALU
 };
 
 int main(){
-    struct Node* root= new Node(1);           //              (1)
+    Node* root= new Node(1);           //              (1)
     root->left=new Node(2);                   //             /   \         
     root->right=new Node(3);                  //           (2)   (3)
     root->left->left=new Node(4);             //           / \ 

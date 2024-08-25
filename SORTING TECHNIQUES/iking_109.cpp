@@ -1,4 +1,5 @@
 // DNF SORT
+// Dutch National Flag Algorithm
 
 // ALSO CALLED 0,1,2 SORT
 

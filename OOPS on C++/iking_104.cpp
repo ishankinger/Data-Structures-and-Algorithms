@@ -12,8 +12,10 @@ int main(){
     
     Meal m1=breakfast;                             
     cout<<m1<<endl;
+
     Meal m2=lunch;
     cout<<m2<<endl;
+    
     cout<<(m1==2)<<endl;                           // PRINT FALSE
 
     

@@ -25,7 +25,7 @@ int main(){
                 i++;
             }else if(s[i]==')'){                              // ELSE CLOSING BRACKET THEN CHECK
                 if(!st.size() || st.top() != '('){            // IF SIZE EMPTY OR TOP ELEMENT IS NOT COMPLEMENT BRACKET THEN
-                    check = false                             // THE STRING WILL NOT BE A BALANCED PARATHESIS
+                    check = false;                             // THE STRING WILL NOT BE A BALANCED PARATHESIS
                     break;                                    // THUS BREAK
                 }                                             // ELSE WE WILL POP THE TOP ELEMENT AND MOVE FURTHER
                 else{
@@ -34,7 +34,7 @@ int main(){
                 }
             }else if(s[i]=='}'){
                 if(!st.size() || st.top() != '{'){            // IF SIZE EMPTY OR TOP ELEMENT IS NOT COMPLEMENT BRACKET THEN
-                    check = false                             // THE STRING WILL NOT BE A BALANCED PARATHESIS
+                    check = false;                             // THE STRING WILL NOT BE A BALANCED PARATHESIS
                     break;                                    // THUS BREAK
                 }                                             // ELSE WE WILL POP THE TOP ELEMENT AND MOVE FURTHER
                 else{
@@ -43,7 +43,7 @@ int main(){
                 }
             }else if(s[i]==']'){
                 if(!st.size() || st.top() != '['){            // IF SIZE EMPTY OR TOP ELEMENT IS NOT COMPLEMENT BRACKET THEN
-                    check = false                             // THE STRING WILL NOT BE A BALANCED PARATHESIS
+                    check = false;                             // THE STRING WILL NOT BE A BALANCED PARATHESIS
                     break;                                    // THUS BREAK
                 }                                             // ELSE WE WILL POP THE TOP ELEMENT AND MOVE FURTHER
                 else{

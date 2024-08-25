@@ -66,7 +66,7 @@ int main(){
     
     v.erase(v.begin()+2);                       // THIRD ELEMENT WILL BE DELETED IN THIS 
     v.erase(v.end()-2);                         // SECOND ELEMENT FROM LAST WILL BE DELETED
-    
+
     for(int i=0;i<v.size();i++){
         cout<<v[i]<<" ";                        // v.end() POINTER WILL POINT TO NEXT OF LAST ELEMENT
     }

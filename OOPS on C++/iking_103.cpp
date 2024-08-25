@@ -8,7 +8,8 @@ union money{                                           // AN UNION DATATYPE IS F
     int rice;                                          // DIFFERENT  TYPE OF VARIABLES ARE DEFINED IN IT
     char car;
     float ruppees;
-};                                                     // USE SEMICOLON AFTER CURLY BRACKETS                                    
+};                                                     // USE SEMICOLON AFTER CURLY BRACKETS 
+                                                                                        
 int main(){
     union money m1;                                    // AN OBJECT IS FORMED 
     m1.rice=34;

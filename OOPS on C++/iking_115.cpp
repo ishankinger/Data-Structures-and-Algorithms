@@ -1,4 +1,5 @@
-// DISTANCE BETWEEN TWO POINTS USING DISTANCE FORMULA WITH THE HELP OF OOP'S ?????????????????????????????????????
+// EXAMPLE BASED ON THE CONSTRUCTORS
+// DISTANCE BETWEEN TWO POINTS USING DISTANCE FORMULA WITH THE HELP OF OOP'S 
 
 #include<iostream>
 #include<cmath>
@@ -18,6 +19,7 @@ class Point{
         x=a;                                                   // ASSIGNING VALUES OF X AND Y AS A AND B
         y=b;
     }
+    
     void displayPoint(){
         cout<<"The point is "<<"("<<x<<","<<y<<")"<<endl;
     }
