@@ -11,8 +11,8 @@ int main(){
     m[3]="urn";
     m[7]="etr";
     m[4];                                                  // IF NO VALUE IS ASSIGNED THEN IT WILL STORE NULL VALUE (EMPTY STRING)
-    m[2]="dkt";                                            // LAST DEFINED VALUE WILL BE TAKEN
-
+    m[2]="dkt";          
+    
     map<int,string>::iterator it;                          // TO TRAVERSE IN THE MAP WE WILL BE USING ITERATORS AS THEY ARE NOT STORED IN
     for(it=m.begin();it!=m.end();it++){                    // CONTIGOUS ORDER SO WE HAVE TO JUMP TO NEXT ADDRESS USING IT++
         cout<<(*it).first<<" "<<(*it).second<<"\n";        // SYNTAX TO GET KEY AND VALUE PAIR
