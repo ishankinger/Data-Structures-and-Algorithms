@@ -3,6 +3,7 @@
 // In this algorithm, each iteration removes an element from the input data and 
 // inserts it into the correct position in the list being sorted. 
 
+// >> Insertion sort is linear for partially sorted array -
 // >> Adaptive: If the input list is presorted [may not be completely] then insertions sort
 //              takes O(n + d), where d is the number of inversions
 // >> Stable: Maintains relative order of input data if the keys are same
@@ -11,35 +12,46 @@
 // sort is used when the data is nearly sorted (due to its adaptiveness) or when the input size is small
 // (due to its low overhead).
 
-// FIRST TRAVERSE ON EACH ELEEMENT AND  INNER WHILE LOOP WILL TRAVERSE BACK TO THAT ELEMENT
-// WHILE TRAVERSING BACK IF WE GET ELEMENT LESSER THAN IT THEN INSERT OUR ELEMENT NEXT TO IT 
-// AS IT WILL BE OUR REQUIRED ELEMENT'S POSITION
-
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+void InsertionSort(vector<int> &a){
+    int n = a.size();
+    for(int i = 1; i < n; i++){
+        int currEle = a[i];
+        int j = i;
+        while(a[j-1] > currEle and j >= 1){
+            a[j] = a[j-1];
+            j--;
+        }
+        a[j] = currEle;
+    }
+}
 
 int main(){
     
-    int arr[]={12,45,51,23,8,19}; 
-    // FOR 23 FIRST WE WILL TRAVERSE BACK AND FIRST 51 OCCURS NOW 51 IS GREATER SO ON 23 POSITION
-    // 51 WILL TAKE PLACE AND FURTHER MOVING 45 IS ALSO GREATER SO OLD 51 POSITION TAKEN BY 45 
-    // NOW 12 IS LESSER SO LOOP WILL BREAK AND
-    // 23 WILL BE INSERTED NEXT TO 12 
-    
-    for(int i=1;i<6;i++){
-        int currEle=arr[i];                // TAKE REFERENCE OF ITH ELEMENT
-        int j=i-1;                         // START TRAVERSING FROM PREVIOUS OF ITH ELEMENT
-        while(j >= 0 && arr[j]>currEle){   // IF WE GET ELEMENT GREATER THAN IT THEN GREATER ELEMENT WILL BE PUSHED IN JTH
-            arr[j+1]=arr[j];                     
-            j--;                           // FURTHER MOVE BACK
-        }
-        arr[j+1]=currEle;                  // WHEN WE GET OUT OF LOOP MEANS WE REACH OUR REQUIRED CONDITION
-    }
-    for(int i=0;i<6;i++){
-        cout<<arr[i]<<" ";
-    }
-    return 0;
+    int n;
+    cin >> n;
+
+    vector<int> a(n);
+    for(int i = 0; i < n; i++) cin >> a[i];
+
+    for(int i = 0; i < n; i++) cout << a[i] << " ";
+    cout << "\n";
+
+    BubbleSort_Cpp(a);
+
+    for(int i = 0; i < n; i++) cout << a[i] << " ";
+    cout << "\n";
+
 }
 
 // >>> TIME COMPLEXITY = O(N2)
+//     >> WORST COMPLEXITY - O(N2), INNER LOOP HAS TO MOVE CURR ELE TO ALL ELEMETNS OF 1...I RANGE
+//     >> AVERAGE CASE - O(N2), INNER LOOP INSERT CURR ELE IN THE MIDDLE OF 1...I RANGE
+//     >> BEST CASE - O(N) , ALREADY SORTED ARRAY
+
 // >>> SPACE COMPLEXITY = O(1)
+
+// N2 / 4 COMPARISONS AND N2 / 8 COMPARISONS IN AVERAGE CASE
+// IN WORST CASE IT DOUBLES

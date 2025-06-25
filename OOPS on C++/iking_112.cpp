@@ -73,7 +73,37 @@ int calculator:: sumCompComplex2(complex2 o1, complex2 o2){
     return o1.b+o2.b;
 }
 
+// FRIEND FUNCTION CAN ALSO BE ACT AS A BRIDGE BETWEEN THE PRIVATE MEMBERS OF TWO DIFFERENT CLASSES
+// WE CAN DEFINE A FRIEND FUNCTION IN BOTH THE CLASSES AND IT WILL CONTAIN ARGUMENT AS OBJECTS FROM BOTH CLASSES
+// SO NOW WE CAN ACCESSS PRIVATE DATA OF BOTH THE CLASSES AND THUS FRIEND FUNCTION ACT AS A BRIDGE BETWEEN THESE TWO CLASSES
+
+class ABC;
+
+class XYZ{
+    int data;
+public:
+    void setValue(int value){
+        data = value;
+    }
+    friend void add(XYZ,ABC);
+};
+
+class ABC{
+    int data;
+public:
+    void setValue(int value){
+        data = value;
+    }
+    friend void add(XYZ,ABC);
+};
+
+void add(XYZ xyz, ABC abc){
+    cout << "Sum of data of both objects -> " << xyz.data + abc.data << "\n";
+}
+
 int main(){
+
+    // MAKING MEMBER FUNCTION OF ONE CLASS AS FRIEND TO OTHER CLASS
     complex o1,o2;
     o1.setNumber(1,4);
     o2.setNumber(1,7);
@@ -83,6 +113,7 @@ int main(){
     int res2= calc2.sumCompComplex(o1,o2);
     cout<<"The sum of complex part of complex numbers is "<< res2<<endl;
 
+    // MAKING WHOLE CLASS FRIEND OF OTHER CLASS
     complex2 c1,c2;
     c1.setNumber(1,4);
     c2.setNumber(1,7);
@@ -90,5 +121,13 @@ int main(){
     cout<<"The sum of real part of complex numbers is "<< res1<<endl;;
     res2= calc2.sumCompComplex2(c1,c2);
     cout<<"The sum of complex part of complex numbers is "<< res2<<endl;
+
+    // FRIEND FUNCTION AS A BRIDGE
+    XYZ xyz;
+    xyz.setValue(5);
+    ABC abc;
+    abc.setValue(10);
+
+    add(xyz,abc);
 }
 

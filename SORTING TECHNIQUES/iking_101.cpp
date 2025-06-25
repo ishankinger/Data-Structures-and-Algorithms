@@ -4,35 +4,52 @@
 // for sorting the files with very large values and small keys. This is because selection is made
 // based on keys and swaps are made only when required.
 
-// TRAVERSE ON EACH ELEMENT VIA FIRST LOOP AND THEN TRAVERSE ON NEXT ELEMENTS TO IT VIA SECOND LOOP
-// IN SECOND LOOP WE WILL SWAP THE MINIMUM ELEMENT
-// SO MAIN FUNDA FOR THIS SORTING IS THAT WE WILL CHOOSE MINIMUM ELEMENT FROM THE LEFT ARRAY AND SWAP IT WITH FIRST ELEMENT OF ARRAY LEFT
+// >> find the minimum element in the list
+// >> swap it with the value in the current position
+// >> repeat this process for all the elements until the entire array is sorted
+
+// The algorithm is called selection sort since it repeatedly selects the smallest element
 
 #include<bits/stdc++.h>
 using namespace std;
 
-int main(){
-    int n; cin>>n;
-    vector<int>v(n);
-    for(auto &ele:v) cin>>ele;
-
-    for(int i=0;i<n;i++){                       // GO IN LOOP FOR EVERY ELEMENT
-        int minEle=INT_MAX;                     // GET THE MINIMUM ELEMENT AND IT'S INDEX(SO TO USE IN SWAP)
-        int minInd=0;                           // IN THE SUB ARRAY OF I+1 TO N
-        for(int j=i;j<n;j++){                   // LOOP TO GET MINIMUM ELEMENT
-            if(v[j]<minEle){
-                minEle=v[j];
-                minInd=j;
+void SelectionSort(vector<int> &a){
+    int n = a.size();
+    int minEleInd;
+    for(int i = 0; i < n-1; i++){
+        minEleInd = i;
+        for(int j = i+1; j < n; j++){
+            if(a[j] < a[minEleInd]){
+                minEleInd = j;
             }
         }
-        swap(v[i],v[minInd]);                  // AT END SWAP IT WITH FIRST ELEMENT
+        swap(a[i],a[minEleInd]);
     }
-    
-    for(int i=0;i<n;i++) cout<<v[i]<<" ";
 }
 
-// >>> TIME COMPLEXITY= O(N2)
+int main(){
+
+    int n;
+    cin >> n;
+
+    vector<int> a(n);
+    for(int i = 0; i < n; i++) cin >> a[i];
+
+    for(int i = 0; i < n; i++) cout << a[i] << " ";
+    cout << "\n";
+
+    SelectionSort(a);
+
+    for(int i = 0; i < n; i++) cout << a[i] << " ";
+    cout << "\n";
+}
+
+// >>> TIME COMPLEXITY= O(N2) for all cases
+
 // >>> SPACE COMPLEXITY = O(1)
+
 // >>> UNSTABLE SORTING ALGORITHM ( ORDER OF OCCURENCE OF SIMILAR ELEMENTS CHANGE )
 //     ex. 3 4 3* 2 ==> 2 3* 3 4        
+
 // >>> MAX SWAPS THAT WILL OCCUR IS O(N)
+// >>> MAX COMPARISONS IS O(N2 / 2)

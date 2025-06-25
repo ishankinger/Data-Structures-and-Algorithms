@@ -58,7 +58,7 @@ void reverse(stack<int>&st){                  // THIS REVERSING WILL OCCUR WITH 
 // SORTING THE ELEMENTS OF THE STACK
 
 void sortStackHelper(stack<int> &st, int num){
-	if(st.empty() or st.top() < num){
+	if(st.empty() || st.top() < num){
 		st.push(num);
 		return;
 	}

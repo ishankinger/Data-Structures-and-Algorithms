@@ -81,16 +81,16 @@ int main(){
     // test case - "aaabaaaaabaab", "aaab"
     // get the difference between the computational operations between both functions strStr and kmp
     
-    string str = "AACECAAAA";
-    string as = str;
-    reverse(as.begin(),as.end());
-    str = str + '#' + as;
+    // string str = "AACECAAAA";
+    // string as = str;
+    // reverse(as.begin(),as.end());
+    // str = str + '#' + as;
 
-    vector<int> v1 = lps(str), v2 = lps_optimise(str);
-    for(int i = 0; i < v1.size(); i++) cout << v1[i] << " ";
-    cout << "\n";
-    for(int i = 0; i < v2.size(); i++) cout << v2[i] << " ";
-    cout << "\n";
+    // vector<int> v1 = lps(str), v2 = lps_optimise(str);
+    // for(int i = 0; i < v1.size(); i++) cout << v1[i] << " ";
+    // cout << "\n";
+    // for(int i = 0; i < v2.size(); i++) cout << v2[i] << " ";
+    // cout << "\n";
 
     string a, b;
     cin >> a >> b;

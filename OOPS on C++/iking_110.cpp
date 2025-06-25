@@ -36,6 +36,8 @@ void check(complex obj1){
     obj1.c;
 }
 
+// A FUNCTION CANNOT ONLY RECEIVE OBJECTS AS ARGUMENTS BUT ALSO CAN RETURN THEM
+
 int main(){
     complex c1,c2,c3;                                              // THREE OBJECTS OF COMPLEX FUNCTIONS ARE MADE
     

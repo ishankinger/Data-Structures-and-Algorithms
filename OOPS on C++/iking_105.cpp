@@ -28,6 +28,7 @@ class Employee{                                           // A CLASS IS DEFINED 
         }
 };                                                        // NOW AT END THE CLASS ENDS WITH ' }; '
 
+// MEMBERSHIP LABEL AND SCOPE RESOLUTION OPERATOR
 void Employee :: setData(int a1, int b1, int c1){         // AS WE HAVE DECLARED ONE FUNCTION IN THE CLASS WE CAN CALL IT AS SHOWN
     a=a1;                                                 // DECLARATION OF THE VARIABLES TO BE EQUAL TO VARIBLES DECLARED IN CLASS FUNCTION
     b=b1;                                                 // IF WE DONOT USE THIS FUNCTION THEN VALUE OF A,B,C WILL BE SOME GARBAGE VALUE PRINTED
