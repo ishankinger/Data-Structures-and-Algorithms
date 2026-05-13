@@ -27,6 +27,8 @@ class Complex2{
     int b;
     public:
 
+    Complex2(){}
+
     Complex2(int x){
         a = x;
     }
@@ -85,7 +87,7 @@ int main(){
 
     // The compiler sees we’re creating a Complex2 object but giving it an int.    
     // It looks for a constructor that can take one int → finds Complex2(int x).
-    Complex2 e = 5;
+    Complex2 e= 5;
     e.printNumber();
 
     // If you don’t want Complex2 e = 5; to work implicitly,
