@@ -1,6 +1,8 @@
 // RANGE UPDATE (ADD X VALUE TO WHOLE RANGE)
 // GET MIN RANGE QUERY
 
+// codeforces edu - https://codeforces.com/edu/course/2/lesson/5/2/practice/contest/279653/problem/A
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -54,7 +56,7 @@ private:
 
     long long getMin(int ind, int l, int r, int start, int end){
         if(l > end || r < start)
-            return 1e9 + 1;
+            return 1e18 + 1;
 
         segTree[ind] += lazyTree[ind];
         if(l != r){
@@ -99,9 +101,7 @@ int main(){
     int n, q;
     cin >> n >> q;
 
-    vector<int> arr(n);
-    for(int i = 0; i < n; i++)
-        cin >> arr[i];
+    vector<int> arr(n, 0);
     
     SegmentTree st(n, arr);
     for(int i = 0; i < q; i++){
@@ -112,13 +112,13 @@ int main(){
             int start, end, val;
             cin >> start >> end >> val;
 
-            st.rangeUpdate(start - 1, end - 1, val);
+            st.rangeUpdate(start, end - 1, val);
         }
         else{
             int start, end;
             cin >> start >> end;
 
-            cout << st.getRangeMin(start - 1, end - 1) << "\n";
+            cout << st.getRangeMin(start, end - 1) << "\n";
         }
     }
 

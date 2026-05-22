@@ -1,6 +1,6 @@
-// SEGMENT TREE WITH BINARY SEARCH
-// GIVEN QUERIES (a,b) TELL ME THE LEFTMOST ELEMENT IN THE RIGHT RANGE WHICH IS > ARR[a] && > ARR[b]
-// leetcode 2940 - https://leetcode.com/problems/find-building-where-alice-and-bob-can-meet/description/
+// leetcode 2179 - https://leetcode.com/problems/count-good-triplets-in-an-array/
+
+// (0..pos1y  && 0..pos2y common) * (pos1y..n  && pos2y..n common)
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -59,11 +59,15 @@ public:
     }
 
     int getLeftMostMaxToRight(int start, int end){
+        if(start == end)
+            return start;
+        if(arr[start] < arr[end])
+            return end;
         int low = end + 1, high = n - 1;
         int mid, ans = -1;
         while(low <= high){
             mid = (low + high) / 2;
-            int maxEleInd = getMaxEleInd(0, 0, n - 1, end + 1, mid);
+            int maxEleInd = getMaxEleInd(0, 0, n - 1, end, mid);
             if(arr[maxEleInd] > arr[start] && arr[maxEleInd] > arr[end])
                 high = mid - 1, ans = maxEleInd;
             else
@@ -71,24 +75,21 @@ public:
         }
         return ans;
     }
-
 };
 
-int main(){
+class Solution {
+public:
+    vector<int> leftmostBuildingQueries(vector<int>& heights, vector<vector<int>>& queries) {
+        int n = heights.size();
+        int q = queries.size();
 
-    int n, q;
-    cin >> n >> q;
+        SegmentTree st(n, heights);
 
-    vector<int> arr(n);
-    for(int i = 0; i < n; i++)
-        cin >> arr[i];
-
-    SegmentTree st(n, arr);
-
-    for(int i = 0; i < q; i++){
-        int a, b;
-        cin >> a >> b;
-
-        cout << st.getLeftMostMaxToRight(a, b) << "\n";
+        vector<int> ans;
+        for(int i = 0; i < q; i++)
+            ans.push_back(st.getLeftMostMaxToRight(min(queries[i][0], queries[i][1]), 
+                                                   max(queries[i][0], queries[i][1])));
+        
+        return ans;
     }
-}
+};
