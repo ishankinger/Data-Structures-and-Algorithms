@@ -1,0 +1,136 @@
+// Mo's Algorithm
+// Mo's Algorithm is an offline query processing technique used when:
+// You have a fixed array.
+// There are many range queries [L, R].
+// Query answers can be updated efficiently when extending/shrinking a range.
+
+
+// When to Use It
+// Use Mo's Algorithm when:
+// Queries are known beforehand (offline).
+// Updates are absent (basic version).
+// You can efficiently:
+// Add an element to the current range.
+// Remove an element from the current range.
+
+
+// Problems -
+// https://cses.fi/problemset/task/1734/
+// https://leetcode.com/problems/threshold-majority-queries/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Query {
+    int l, r, idx;
+};
+
+int BLOCK;
+vector<int> arr;
+vector<int> freq;
+int distinctCount = 0;
+
+bool cmp(Query a, Query b) {
+    int blockA = a.l / BLOCK;
+    int blockB = b.l / BLOCK;
+
+    if (blockA != blockB)
+        return blockA < blockB;
+
+    // Odd-Even Optimization
+    // Block0 : ------>
+    // Block1 : <------
+    // Block2 : ------>
+    // Block3 : <------
+    // but the transition between blocks becomes smooth because each block starts near
+    // where the previous one ended.
+    if (blockA & 1)
+        return a.r > b.r;
+
+    return a.r < b.r;
+}
+
+void add(int idx) {
+    int x = arr[idx];
+
+    freq[x]++;
+
+    if (freq[x] == 1)
+        distinctCount++;
+}
+
+void remove_(int idx) {
+    int x = arr[idx];
+
+    freq[x]--;
+
+    if (freq[x] == 0)
+        distinctCount--;
+}
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+
+    arr.resize(n);
+
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    vector<Query> queries(q);
+
+    for (int i = 0; i < q; i++) {
+        int l, r;
+        cin >> l >> r;
+
+        l--;   // convert to 0-based
+        r--;
+
+        queries[i] = {l, r, i};
+    }
+
+    BLOCK = sqrt(n);
+
+    /*
+        Coordinate Compression
+        Needed if values are large
+    */
+    vector<int> temp = arr;
+    sort(temp.begin(), temp.end());
+    temp.erase(unique(temp.begin(), temp.end()), temp.end());
+    for (int i = 0; i < n; i++) 
+        arr[i] = lower_bound(temp.begin(), temp.end(), arr[i]) - temp.begin();
+
+    freq.resize(temp.size() + 1, 0);
+
+    sort(queries.begin(), queries.end(), cmp);
+
+    vector<int> ans(q);
+
+    int curL = 0;
+    int curR = -1;
+
+    for (auto &query : queries) {
+        int L = query.l;
+        int R = query.r;
+
+        while (curL > L)
+            add(--curL);
+
+        while (curR < R)
+            add(++curR);
+
+        while (curL < L)
+            remove_(curL++);
+
+        while (curR > R)
+            remove_(curR--);
+
+        ans[query.idx] = distinctCount;
+    }
+
+    for (int x : ans)
+        cout << x << "\n";
+
+    return 0;
+}
