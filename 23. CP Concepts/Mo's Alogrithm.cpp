@@ -4,7 +4,6 @@
 // There are many range queries [L, R].
 // Query answers can be updated efficiently when extending/shrinking a range.
 
-
 // When to Use It
 // Use Mo's Algorithm when:
 // Queries are known beforehand (offline).
@@ -13,6 +12,22 @@
 // Add an element to the current range.
 // Remove an element from the current range.
 
+// Cost of Moving R
+// Since queries are sorted by R:
+// Notice:
+// R only moves forward.
+// It never jumps back much inside the same block.
+// Maximum movement of R inside one block: O(N)
+// because R can go from 0 to N-1 at most once.
+// Across All Blocks
+// Number of blocks: sqrt(N)
+// Each block contributes: O(N)
+// Therefore: O(N.sqrt(N))
+
+// Cost of Moving L
+// Thus L can vary by at most: O(sqrt(N))  (moves in a block only for each query)
+// So movement of L per query: O(sqrt(N))
+// For Q queries: O(N.sqrt(N))
 
 // Problems -
 // https://cses.fi/problemset/task/1734/
